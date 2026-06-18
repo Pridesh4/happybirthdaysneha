@@ -1,49 +1,113 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-<title>Happy Birthday Sneha2 ❤️</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sneha ❤️</title>
+
 <style>
-body{
+*{
 margin:0;
-font-family:Arial;
-background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 text-align:center;
+overflow-x:hidden;
+}
+
+.hero{
+padding:100px 20px;
 color:white;
 }
-.hero{
-padding:80px 20px;
+
+.hero h1{
+font-size:55px;
+margin-bottom:20px;
 }
-h1{
-font-size:50px;
+
+.hero p{
+font-size:22px;
 }
-.card{
-background:white;
-color:#333;
-margin:20px;
-padding:20px;
-border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-}
-img{
-width:90%;
-max-width:400px;
-border-radius:20px;
-margin-top:15px;
-}
-.btn{
+
+.button{
 display:inline-block;
-padding:15px 30px;
+margin-top:25px;
+padding:15px 35px;
 background:#ff4081;
 color:white;
 text-decoration:none;
 border-radius:30px;
-margin-top:20px;
+font-weight:bold;
+}
+
+.section{
+background:white;
+margin:20px;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.gallery img{
+width:300px;
+max-width:90%;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.countdown{
+font-size:28px;
+font-weight:bold;
+color:#ff4081;
+margin-top:15px;
+}
+
+.footer{
+padding:40px;
+font-size:22px;
+color:white;
+font-weight:bold;
+}
+
+.heart{
+position:fixed;
+bottom:-50px;
+font-size:25px;
+animation:float 10s linear infinite;
+opacity:0.7;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+}
+100%{
+transform:translateY(-120vh);
+}
 }
 </style>
+
 </head>
 
 <body>
+
+<div class="heart" style="left:10%">❤️</div>
+<div class="heart" style="left:30%;animation-delay:2s">💕</div>
+<div class="heart" style="left:50%;animation-delay:4s">💖</div>
+<div class="heart" style="left:70%;animation-delay:1s">❤️</div>
+<div class="heart" style="left:90%;animation-delay:3s">💕</div>
 
 <div class="hero">
 <h1>🎂 Happy Birthday Sneha ❤️</h1>
@@ -52,43 +116,123 @@ margin-top:20px;
 You are my happiness, my peace, and my greatest blessing.
 </p>
 
-<a class="btn" href="#letter">Open My Surprise ❤️</a>
+<a href="#letter" class="button">Open My Surprise ❤️</a>
+
 </div>
 
-<div class="card" id="letter">
+<div class="section">
+<h2>⏳ Countdown To Your Birthday</h2>
+<div id="countdown" class="countdown"></div>
+</div>
+
+<div class="section">
+<h2>📸 Our Beautiful Memories</h2>
+
+<div class="gallery">
+<img src="lokesh.png">
+<img src="pridesh.png">
+<img src="clip4.JPG">
+</div>
+
+</div>
+
+<div class="section" id="letter">
 <h2>💌 My Letter To You</h2>
 
-<p>
-My Dearest Sneha,
+<br>
 
-Thank you for being my strength, my best friend, and my greatest blessing.
+<p style="font-size:20px;line-height:1.8">
 
-Every smile of yours brightens my darkest days.
+My Dearest Sneha ❤️
 
-No matter what happens in life,
-I will always choose you,
-love you,
-and cherish you forever.
+<br><br>
+
+Today is not just your birthday.
+
+It is the day God blessed this world with someone who would one day become my happiness, my strength, and my home.
+
+<br><br>
+
+Thank you for every smile, every sacrifice, every prayer, and every moment you have shared with me.
+
+<br><br>
+
+No matter what happens in life, I will always choose you.
+
+I will always love you.
+
+I will always cherish you.
+
+<br><br>
 
 Happy Birthday My Love ❤️
 
 <br><br>
 
-Forever Yours,<br>
+Forever Yours,
+
+<br>
+
 Pridesh ❤️
+
 </p>
 
 </div>
 
-<div class="card">
-<h2>🎁 One Last Surprise</h2>
+<div class="section">
+<h2>🎁 10 Reasons I Love You</h2>
 
-<p>
-Will you keep loving me for the rest of our lives? ❤️
+<br>
+
+❤️ Your Smile<br><br>
+❤️ Your Kind Heart<br><br>
+❤️ Your Support<br><br>
+❤️ Your Patience<br><br>
+❤️ Your Caring Nature<br><br>
+❤️ Your Honesty<br><br>
+❤️ Your Strength<br><br>
+❤️ Your Laughter<br><br>
+❤️ Your Love<br><br>
+❤️ Because You Are You ❤️
+
+</div>
+
+<div class="section">
+<h2>💍 One Last Surprise</h2>
+
+<br>
+
+<p style="font-size:28px">
+Will You Keep Loving Me Forever? ❤️
 </p>
 
-<h1>💍</h1>
+<br>
+
+<h1>💖</h1>
+
 </div>
+
+<div class="footer">
+Happy Birthday Sneha ❤️
+</div>
+
+<script>
+var birthday = new Date("June 26, 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+var now = new Date().getTime();
+var distance = birthday - now;
+
+var days = Math.floor(distance/(1000*60*60*24));
+var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+var minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("countdown").innerHTML =
+days + " Days " + hours + " Hours " + minutes + " Minutes";
+
+},1000);
+</script>
 
 </body>
 </html>
