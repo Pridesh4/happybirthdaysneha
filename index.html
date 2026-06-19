@@ -16,14 +16,47 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at 20% 30%, #fce8e3, #f5d6d0);
       min-height: 100vh;
       padding: 20px 12px 40px;
       color: #2e1f1e;
       overflow-x: hidden;
       scroll-behavior: smooth;
       text-align: center;
+      position: relative;
     }
+    
+    /* ===== BACKGROUND IMAGE with BLUR ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('pic1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(12px) brightness(0.7);
+      -webkit-filter: blur(12px) brightness(0.7);
+      transform: scale(1.05);
+      z-index: -2;
+      opacity: 0.85;
+    }
+    
+    /* Overlay for extra light effect */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 245, 240, 0.25);
+      z-index: -1;
+      pointer-events: none;
+    }
+    
     .glass {
       background: rgba(255, 245, 240, 0.55);
       backdrop-filter: blur(8px);
@@ -51,7 +84,9 @@
     }
     .hero {
       padding: 70px 20px 60px;
-      background: radial-gradient(ellipse at 20% 30%, #ffeae4, #fcd9d0);
+      background: rgba(255, 235, 225, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-radius: 64px 64px 40px 40px;
       border: 1px solid rgba(255, 220, 210, 0.5);
       position: relative;
@@ -372,7 +407,6 @@
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-15px) rotate(10deg); }
     }
-    /* Emotional Promise Style */
     .emotional-promise {
       font-size: 1.2rem;
       line-height: 2.4;
@@ -613,7 +647,7 @@
     }, 1000);
 
     // ========== DAYS TOGETHER ==========
-    const startDate = new Date("June 1, 2026 17:00:00"); // June 1, 2026 at 5:00 PM
+    const startDate = new Date("June 1, 2026 17:00:00");
     const today = new Date();
     const diff = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
     document.getElementById("daysTogether").innerHTML = diff > 0 ? diff : 0;
