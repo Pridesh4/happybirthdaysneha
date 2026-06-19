@@ -24,7 +24,6 @@
       scroll-behavior: smooth;
       text-align: center;
     }
-    /* glass-morphism core */
     .glass {
       background: rgba(255, 245, 240, 0.55);
       backdrop-filter: blur(8px);
@@ -72,7 +71,7 @@
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.8rem;
+      font-size: 3.6rem;
       font-weight: 700;
       letter-spacing: -0.5px;
       background: linear-gradient(145deg, #a84c4c, #772f2f);
@@ -110,11 +109,61 @@
       border: 1px solid rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(4px);
       text-align: center;
+      cursor: pointer;
     }
     .button:hover {
       transform: translateY(-5px) scale(1.02);
       box-shadow: 0 25px 45px -8px #a94444b3;
       background: linear-gradient(135deg, #d67a7a, #a94444);
+    }
+    /* Stylish Reply Button */
+    .reply-btn {
+      display: inline-block;
+      padding: 20px 55px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      border: none;
+      border-radius: 80px;
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-decoration: none;
+      box-shadow: 0 16px 40px -8px rgba(37, 211, 102, 0.5);
+      transition: all 0.3s ease;
+      letter-spacing: 0.8px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .reply-btn::before {
+      content: "💬";
+      margin-right: 12px;
+      font-size: 1.6rem;
+    }
+    .reply-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .reply-btn:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 25px 50px -8px rgba(37, 211, 102, 0.6);
+      background: linear-gradient(135deg, #31d66a, #128C7E);
+    }
+    .reply-btn:hover::after {
+      opacity: 1;
+    }
+    .reply-btn:active {
+      transform: scale(0.97);
     }
     h2 {
       font-family: 'Playfair Display', serif;
@@ -224,30 +273,6 @@
       color: #9e4040;
       font-family: 'Playfair Display', serif;
     }
-    .music-btn {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      background: rgba(255, 235, 225, 0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 200, 190, 0.5);
-      padding: 16px 30px;
-      border-radius: 80px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #402220;
-      box-shadow: 0 18px 35px rgba(100, 50, 40, 0.15);
-      cursor: pointer;
-      z-index: 999;
-      transition: 0.25s;
-      letter-spacing: 0.4px;
-    }
-    .music-btn:hover {
-      background: #fce4dc;
-      transform: scale(1.05);
-      box-shadow: 0 22px 40px rgba(120, 60, 50, 0.2);
-    }
     .divider {
       width: 80px;
       height: 3px;
@@ -255,7 +280,6 @@
       margin: 18px auto;
       border-radius: 12px;
     }
-    /* floating hearts - premium soft */
     .heart-float {
       position: fixed;
       bottom: -80px;
@@ -269,7 +293,6 @@
       0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
       100% { transform: translateY(-140vh) scale(1.3); opacity: 0; }
     }
-    /* fireworks canvas overlay */
     #fireworks-canvas {
       position: fixed;
       top: 0;
@@ -280,21 +303,32 @@
       z-index: 9999;
       display: block;
     }
-    /* extra premium touch */
-    .glow-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      background: linear-gradient(135deg, #b34a4a, #d67a7a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .subtitle {
-      font-size: 1.3rem;
-      font-weight: 300;
+    .music-indicator {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: rgba(255, 235, 225, 0.6);
+      backdrop-filter: blur(8px);
+      padding: 12px 20px;
+      border-radius: 60px;
+      font-size: 0.9rem;
       color: #5a3a38;
-      letter-spacing: 2px;
-      margin-top: 8px;
+      border: 1px solid rgba(255, 200, 190, 0.3);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(100, 50, 40, 0.08);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .music-indicator span {
+      display: inline-block;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.1); }
     }
     @media (max-width: 640px) {
       .hero h1 { font-size: 2.8rem; }
@@ -304,7 +338,9 @@
       .countdown { font-size: 1.7rem; padding: 16px 20px; }
       h2 { font-size: 2.2rem; }
       .letter-content { font-size: 1rem; padding: 20px; }
-      .music-btn { bottom: 16px; right: 16px; padding: 12px 20px; font-size: 0.9rem; }
+      .music-indicator { bottom: 16px; right: 16px; padding: 10px 16px; font-size: 0.8rem; }
+      .reply-btn { padding: 16px 35px; font-size: 1.1rem; }
+      .reply-btn::before { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -321,16 +357,17 @@
   <!-- Fireworks Canvas -->
   <canvas id="fireworks-canvas"></canvas>
 
-  <!-- Background Music with gradual volume increase -->
+  <!-- Background Music -->
   <audio id="bgmusic" loop preload="auto" crossorigin="anonymous">
     <source src="Music.mp3" type="audio/mpeg">
   </audio>
 
-  <button class="music-btn" id="musicToggleBtn">
-    🎵 Play Music
-  </button>
+  <!-- Music indicator -->
+  <div class="music-indicator">
+    <span>🎵</span> Music Playing <span>❤️</span>
+  </div>
 
-  <!-- ====== HERO with proper heading ====== -->
+  <!-- ====== HERO ====== -->
   <div class="hero glass">
     <h1>🎂 Happy 25th Birthday<br>My Beautiful Wife Sneha ❤️</h1>
     <p>
@@ -375,7 +412,7 @@
       <p>Today is not just your birthday. It is the day God blessed this world with someone who would one day become my happiness, my strength, my peace and my home.</p>
       <p>Thank you for every smile, every sacrifice, every prayer, and every beautiful memory we created together.</p>
       <p>Whenever life becomes difficult, your love gives me strength. Whenever I feel lost, your smile gives me hope.</p>
-      <p>No matter what happens in life, I will always choose you. I will always love you. I will always cherish you.</p>
+      <p><strong>No matter what happens in life, I will always choose you. I will always love you. I will always cherish you.</strong></p>
       <p>You are not only my wife, you are my greatest blessing.</p>
       <p style="font-size: 1.5rem; font-weight: 600; color: #a94444; margin-top: 12px;">Happy 25th Birthday My Love ❤️</p>
       <p style="margin-top: 24px;">Forever Yours,<br><strong>Pridesh ❤️</strong></p>
@@ -400,7 +437,7 @@
     </div>
   </div>
 
-  <!-- LAST SURPRISE -->
+  <!-- LAST SURPRISE + REPLY BUTTON -->
   <div class="section" style="background: rgba(240, 215, 205, 0.4);">
     <h2>💍 One Last Surprise</h2>
     <div class="divider"></div>
@@ -409,6 +446,18 @@
     </p>
     <div style="font-size: 5.5rem; margin: 20px 0;">💖</div>
     <p style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #9e4040;">— yes, forever —</p>
+    
+    <!-- ===== STYLISH REPLY BUTTON ===== -->
+    <div style="margin-top: 40px;">
+      <a href="https://wa.me/919500134256?text=❤️%20Happy%20Birthday%20My%20Love%20Sneha!%20I%20love%20you%20forever%20and%20always!%20Thank%20you%20for%20everything.%20You%20are%20my%20world!%20💕" 
+         target="_blank" 
+         class="reply-btn">
+        Reply To My Love ❤️
+      </a>
+      <p style="margin-top: 16px; font-size: 0.95rem; opacity: 0.6; font-weight: 300;">
+        Click to send your reply on WhatsApp 💬
+      </p>
+    </div>
   </div>
 
   <!-- FOOTER -->
@@ -438,10 +487,9 @@
         days + " Days ❤️ " + hours + " Hours ❤️ " + minutes + " Minutes ❤️ " + seconds + " Seconds";
     }, 1000);
 
-    // ========== MUSIC: AUTOPLAY + GRADUAL VOLUME ==========
+    // ========== MUSIC: ALWAYS ON with GRADUAL VOLUME ==========
     (function() {
       const audio = document.getElementById('bgmusic');
-      const toggleBtn = document.getElementById('musicToggleBtn');
       let isPlaying = false;
       let fadeInterval = null;
       let targetVolume = 0.55;
@@ -455,8 +503,8 @@
         }
         let vol = 0;
         audio.volume = 0;
-        const step = 0.035;
-        const intervalMs = 120;
+        const step = 0.025;
+        const intervalMs = 100;
         fadeInterval = setInterval(() => {
           vol = Math.min(vol + step, targetVolume);
           audio.volume = vol;
@@ -471,77 +519,46 @@
         if (isPlaying) return;
         audio.play().then(() => {
           isPlaying = true;
-          toggleBtn.innerHTML = '🔊 Music On';
           fadeIn();
         }).catch(err => {
-          console.warn('Autoplay blocked, click button to play');
-          toggleBtn.innerHTML = '🔇 Click to Play';
+          setTimeout(startMusic, 500);
         });
       }
 
-      function stopMusic() {
-        if (fadeInterval) {
-          clearInterval(fadeInterval);
-          fadeInterval = null;
-        }
-        audio.pause();
-        audio.volume = 0;
-        isPlaying = false;
-        toggleBtn.innerHTML = '🎵 Play Music';
-      }
-
-      toggleBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (isPlaying) {
-          stopMusic();
-        } else {
-          startMusic();
-        }
-      });
-
-      // ===== STRONG AUTOPLAY =====
       function tryAutoPlay() {
         if (isPlaying) return;
         audio.play().then(() => {
           isPlaying = true;
-          toggleBtn.innerHTML = '🔊 Music On';
           fadeIn();
         }).catch(() => {
-          toggleBtn.innerHTML = '🎵 Play Music';
+          setTimeout(tryAutoPlay, 300);
         });
       }
 
-      // Try autoplay immediately and after delays
-      setTimeout(tryAutoPlay, 300);
+      setTimeout(tryAutoPlay, 100);
+      setTimeout(tryAutoPlay, 500);
       setTimeout(tryAutoPlay, 1000);
       setTimeout(tryAutoPlay, 2000);
+      setTimeout(tryAutoPlay, 3000);
 
-      // Also on any user interaction
-      document.addEventListener('click', function(e) {
-        if (e.target.closest('.music-btn')) return;
-        if (!isPlaying) {
-          startMusic();
-        }
+      document.addEventListener('click', function() {
+        if (!isPlaying) startMusic();
       }, { once: false, passive: true });
 
-      document.addEventListener('touchstart', function(e) {
-        if (e.target.closest('.music-btn')) return;
-        if (!isPlaying) {
-          startMusic();
-        }
+      document.addEventListener('touchstart', function() {
+        if (!isPlaying) startMusic();
       }, { once: false, passive: true });
 
-      // Extra: try on visibility change (user returns to tab)
       document.addEventListener('visibilitychange', function() {
-        if (!document.hidden && !isPlaying) {
-          tryAutoPlay();
-        }
+        if (!document.hidden && !isPlaying) tryAutoPlay();
       });
 
-      window.startBackgroundMusic = startMusic;
+      window.addEventListener('load', function() {
+        setTimeout(tryAutoPlay, 200);
+      });
     })();
 
-    // ========== FIREWORKS (premium, no hanging) ==========
+    // ========== FIREWORKS ==========
     (function() {
       const canvas = document.getElementById('fireworks-canvas');
       const ctx = canvas.getContext('2d');
