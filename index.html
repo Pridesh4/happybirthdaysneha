@@ -435,24 +435,30 @@
       font-weight: 600;
     }
 
-    /* ===== GIFT BOX STYLES ===== */
+    /* ===== GIFT BOX WITH BURST ANIMATION ===== */
     #giftSection {
       display: none;
       padding: 20px 0;
     }
     #giftSection.active {
       display: block;
-      animation: fadeInUp 0.8s ease forwards;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px) scale(0.95); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    
+    .gift-wrapper {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      margin: 30px auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+    
+    /* Gift Box */
     .gift-box {
       position: relative;
       width: 200px;
       height: 180px;
-      margin: 20px auto;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
@@ -461,15 +467,15 @@
     }
     .gift-lid {
       position: absolute;
-      top: -20px;
+      top: -25px;
       left: 50%;
       transform: translateX(-50%);
-      width: 180px;
-      height: 30px;
+      width: 190px;
+      height: 35px;
       background: linear-gradient(145deg, #e84c4c, #c0392b);
-      border-radius: 12px 12px 0 0;
+      border-radius: 14px 14px 0 0;
       box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
-      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
       transform-origin: bottom center;
       z-index: 2;
     }
@@ -479,19 +485,20 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 2.2rem;
+      font-size: 2.5rem;
     }
     .gift-body {
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 180px;
-      height: 150px;
+      width: 190px;
+      height: 155px;
       background: linear-gradient(145deg, #e84c4c, #c0392b);
-      border-radius: 0 0 20px 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      border-radius: 0 0 22px 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
       z-index: 1;
+      transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .gift-body::before {
       content: '';
@@ -499,7 +506,7 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 12px;
+      width: 14px;
       height: 100%;
       background: rgba(255,215,0,0.4);
       border-radius: 6px;
@@ -511,7 +518,7 @@
       left: 0;
       transform: translateY(-50%);
       width: 100%;
-      height: 12px;
+      height: 14px;
       background: rgba(255,215,0,0.4);
       border-radius: 6px;
     }
@@ -520,64 +527,75 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 20px;
+      width: 22px;
       height: 100%;
       background: rgba(255,215,0,0.5);
       border-radius: 4px;
       z-index: 3;
     }
     
-    /* Open state */
-    .gift-box.open .gift-lid {
-      transform: translateX(-50%) rotateX(-120deg) translateY(-30px);
+    /* ===== BURST ANIMATION STATES ===== */
+    .gift-box.burst .gift-lid {
+      transform: translateX(-50%) rotateX(-150deg) translateY(-40px) scale(1.1);
       opacity: 0;
     }
-    .gift-box.open .gift-body {
-      animation: giftPop 0.5s ease forwards;
-    }
-    @keyframes giftPop {
-      0% { transform: translateX(-50%) scale(1); }
-      50% { transform: translateX(-50%) scale(1.08); }
-      100% { transform: translateX(-50%) scale(1); }
+    .gift-box.burst .gift-body {
+      transform: translateX(-50%) scale(1.3);
+      opacity: 0;
     }
     
-    /* Surprise reveal */
-    .gift-surprise {
-      display: none;
-      margin-top: 30px;
-      animation: revealContent 0.8s ease forwards;
-    }
-    .gift-surprise.active {
-      display: block;
-    }
-    @keyframes revealContent {
-      from { opacity: 0; transform: scale(0.8) translateY(20px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    .gift-surprise img {
-      width: 300px;
-      max-width: 90%;
+    /* Image emerging from box */
+    .emerge-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.3);
+      opacity: 0;
+      width: 200px;
+      height: 200px;
       border-radius: 30px;
-      box-shadow: 0 20px 50px -10px rgba(0,0,0,0.2);
-      border: 4px solid rgba(255, 255, 255, 0.6);
+      object-fit: cover;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      border: 4px solid rgba(255,255,255,0.7);
+      z-index: 5;
+      transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      pointer-events: none;
     }
-    .gift-message {
+    .emerge-image.show {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    
+    /* Quote below */
+    .gift-quote {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease 0.8s;
+      margin-top: 30px;
+      padding: 20px;
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       color: #5a2d2d;
-      margin-top: 20px;
       line-height: 1.8;
-      font-weight: 400;
+      background: rgba(255, 245, 240, 0.4);
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 215, 210, 0.3);
     }
-    .gift-message .heart-glow {
+    .gift-quote.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .gift-quote .heart-glow {
       color: #a94444;
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
-    .gift-message .highlight {
+    .gift-quote .highlight {
       color: #a94444;
       font-weight: 600;
     }
-    /* Sparkle effect on gift open */
+
+    /* Sparkle container */
     .sparkle-container {
       position: fixed;
       top: 0;
@@ -590,15 +608,14 @@
     }
     .sparkle {
       position: absolute;
-      width: 8px;
-      height: 8px;
-      background: gold;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      animation: sparkleAnim 1.5s ease forwards;
+      animation: sparkleAnim 1.8s ease forwards;
     }
     @keyframes sparkleAnim {
       0% { transform: scale(0) rotate(0deg); opacity: 1; }
-      100% { transform: scale(1.5) rotate(720deg) translateY(-200px); opacity: 0; }
+      100% { transform: scale(1.8) rotate(720deg) translateY(-250px); opacity: 0; }
     }
 
     @media (max-width: 640px) {
@@ -616,10 +633,11 @@
       .letter-content .signature { font-size: 1.8rem; }
       .emotional-promise { font-size: 1rem; padding: 18px 15px; }
       .gift-box { width: 150px; height: 135px; }
-      .gift-lid { width: 135px; height: 25px; top: -15px; }
-      .gift-body { width: 135px; height: 115px; }
-      .gift-message { font-size: 1.2rem; }
-      .gift-surprise img { width: 250px; }
+      .gift-lid { width: 145px; height: 28px; top: -20px; }
+      .gift-body { width: 145px; height: 115px; }
+      .emerge-image { width: 150px; height: 150px; }
+      .gift-quote { font-size: 1.3rem; padding: 15px; }
+      .gift-wrapper { width: 170px; height: 170px; }
     }
   </style>
 </head>
@@ -662,26 +680,29 @@
     <h2>🎁 A Special Gift For You</h2>
     <div class="divider"></div>
     
-    <div class="gift-box" id="giftBox" onclick="openGift()">
-      <div class="gift-lid"></div>
-      <div class="gift-body">
-        <div class="gift-ribbon"></div>
+    <div class="gift-wrapper">
+      <!-- Gift Box -->
+      <div class="gift-box" id="giftBox" onclick="openGift()">
+        <div class="gift-lid"></div>
+        <div class="gift-body">
+          <div class="gift-ribbon"></div>
+        </div>
       </div>
+      
+      <!-- Image that emerges from box -->
+      <img src="pic11.jpg" alt="Special Memory ❤️" class="emerge-image" id="emergeImage">
     </div>
-    <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.6;">Click the gift box to open it 🎁</p>
     
-    <!-- Surprise Reveal -->
-    <div class="gift-surprise" id="giftSurprise">
-      <img src="pic11.jpg" alt="Special Memory ❤️" id="giftImage">
-      <div class="gift-message">
-        <span class="heart-glow">💖</span><br>
-        Every moment with you<br>
-        is a treasure I hold close to my heart.<br>
-        <span class="highlight">I love you more than words can say.</span><br>
-        <span class="highlight">More than you'll ever know.</span><br>
-        <span style="font-size: 2rem;">❤️</span>
-      </div>
+    <!-- Quote below -->
+    <div class="gift-quote" id="giftQuote">
+      <span class="heart-glow">💖</span><br>
+      You are my today and all of my tomorrows.<br>
+      <span class="highlight">I fall in love with you more and more</span><br>
+      <span class="highlight">with every passing moment.</span><br>
+      <span style="font-size: 2.5rem;">❤️</span>
     </div>
+    
+    <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.5;">Click the gift box to open it 🎁</p>
   </div>
 
   <!-- COUNTDOWN -->
@@ -839,26 +860,32 @@
     function openGift() {
       const giftBox = document.getElementById('giftBox');
       const giftSection = document.getElementById('giftSection');
-      const giftSurprise = document.getElementById('giftSurprise');
+      const emergeImage = document.getElementById('emergeImage');
+      const giftQuote = document.getElementById('giftQuote');
       
       // Show gift section if hidden
       giftSection.classList.add('active');
       
-      // Open the gift box
-      giftBox.classList.add('open');
+      // Add burst class to box (slowly bursts)
+      giftBox.classList.add('burst');
       
-      // Show surprise after animation
+      // Show image emerging after box starts bursting
       setTimeout(() => {
-        giftSurprise.classList.add('active');
+        emergeImage.classList.add('show');
+      }, 600);
+      
+      // Show quote after image appears
+      setTimeout(() => {
+        giftQuote.classList.add('show');
         // Create sparkles
         createSparkles();
         // Trigger extra fireworks
-        for (let i = 0; i < 3; i++) {
-          setTimeout(() => autoBurst(), i * 300);
+        for (let i = 0; i < 4; i++) {
+          setTimeout(() => window.autoBurst(), i * 350 + 200);
         }
-      }, 700);
+      }, 1200);
       
-      // Scroll to gift section
+      // Scroll to gift section smoothly
       setTimeout(() => {
         giftSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 300);
@@ -870,24 +897,25 @@
       container.className = 'sparkle-container';
       document.body.appendChild(container);
       
-      const colors = ['#FFD700', '#FF6B6B', '#FF69B4', '#FF1493', '#FFA500', '#FFD700'];
-      for (let i = 0; i < 60; i++) {
+      const colors = ['#FFD700', '#FF6B6B', '#FF69B4', '#FF1493', '#FFA500', '#FFD700', '#FF4500', '#FF6347'];
+      for (let i = 0; i < 80; i++) {
         const sparkle = document.createElement('div');
         sparkle.className = 'sparkle';
         sparkle.style.left = Math.random() * 100 + '%';
         sparkle.style.top = Math.random() * 100 + '%';
-        sparkle.style.width = (Math.random() * 12 + 4) + 'px';
-        sparkle.style.height = sparkle.style.width;
+        const size = Math.random() * 14 + 4;
+        sparkle.style.width = size + 'px';
+        sparkle.style.height = size + 'px';
         sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
         sparkle.style.animationDuration = (Math.random() * 1.5 + 0.8) + 's';
-        sparkle.style.animationDelay = (Math.random() * 0.6) + 's';
-        sparkle.style.boxShadow = '0 0 20px ' + sparkle.style.background;
+        sparkle.style.animationDelay = (Math.random() * 0.8) + 's';
+        sparkle.style.boxShadow = '0 0 25px ' + sparkle.style.background + ', 0 0 50px ' + sparkle.style.background;
         container.appendChild(sparkle);
       }
       
       setTimeout(() => {
         container.remove();
-      }, 3000);
+      }, 3500);
     }
 
     // ========== COUNTDOWN ==========
@@ -1084,7 +1112,7 @@
 
       animate();
 
-      // Make autoBurst globally accessible for gift opening
+      // Make autoBurst globally accessible
       window.autoBurst = autoBurst;
 
       canvas.addEventListener('click', (e) => {
