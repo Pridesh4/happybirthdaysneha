@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>✨ Happy 25th Birthday Sneha ❤️</title>
-  <!-- Google Fonts for premium elegance -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -116,7 +116,6 @@
       box-shadow: 0 25px 45px -8px #a94444b3;
       background: linear-gradient(135deg, #d67a7a, #a94444);
     }
-    /* Stylish Reply Button */
     .reply-btn {
       display: inline-block;
       padding: 20px 55px;
@@ -231,6 +230,12 @@
       font-weight: 600;
       color: #9e4040;
     }
+    .letter-content .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      color: #a94444;
+      margin-top: 10px;
+    }
     .reason-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -290,8 +295,8 @@
       z-index: 0;
     }
     @keyframes floatUp {
-      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
-      100% { transform: translateY(-140vh) scale(1.3); opacity: 0; }
+      0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0.2; }
+      100% { transform: translateY(-140vh) scale(1.3) rotate(360deg); opacity: 0; }
     }
     #fireworks-canvas {
       position: fixed;
@@ -330,6 +335,27 @@
       0%, 100% { opacity: 0.4; transform: scale(0.9); }
       50% { opacity: 1; transform: scale(1.1); }
     }
+    /* Romantic poem style */
+    .poem {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      line-height: 2.2;
+      color: #4d2e2b;
+      font-style: italic;
+      padding: 10px 0;
+    }
+    .poem span {
+      display: block;
+    }
+    .floating-roses {
+      font-size: 2rem;
+      animation: floatRose 8s ease-in-out infinite;
+      display: inline-block;
+    }
+    @keyframes floatRose {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(10deg); }
+    }
     @media (max-width: 640px) {
       .hero h1 { font-size: 2.8rem; }
       .hero p { font-size: 1.2rem; }
@@ -341,17 +367,19 @@
       .music-indicator { bottom: 16px; right: 16px; padding: 10px 16px; font-size: 0.8rem; }
       .reply-btn { padding: 16px 35px; font-size: 1.1rem; }
       .reply-btn::before { font-size: 1.2rem; }
+      .poem { font-size: 1.1rem; }
+      .letter-content .signature { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating hearts -->
+  <!-- Floating hearts & roses -->
   <div class="heart-float" style="left:4%">❤️‍🔥</div>
-  <div class="heart-float" style="left:16%; animation-delay: 3s">🌸</div>
+  <div class="heart-float" style="left:16%; animation-delay: 3s">🌹</div>
   <div class="heart-float" style="left:32%; animation-delay: 6s">💗</div>
   <div class="heart-float" style="left:50%; animation-delay: 1.5s">✨</div>
-  <div class="heart-float" style="left:68%; animation-delay: 4.5s">🕊️</div>
+  <div class="heart-float" style="left:68%; animation-delay: 4.5s">🌹</div>
   <div class="heart-float" style="left:84%; animation-delay: 8s">💖</div>
 
   <!-- Fireworks Canvas -->
@@ -403,23 +431,42 @@
     </div>
   </div>
 
-  <!-- LETTER -->
+  <!-- ====== LETTER with Poem ====== -->
   <div class="section" id="letter">
     <h2>💌 My Letter To You</h2>
     <div class="divider"></div>
     <div class="letter-content">
       <p><strong>My Dearest Sneha ❤️</strong></p>
+      
+      <!-- Romantic Poem -->
+      <div class="poem">
+        <span>🌹 In your eyes, I found my home,</span>
+        <span>In your heart, I'll never roam.</span>
+        <span>With every smile, you light my way,</span>
+        <span>You're my sunshine every single day.</span>
+        <span>🌹</span>
+      </div>
+      
       <p>Today is not just your birthday. It is the day God blessed this world with someone who would one day become my happiness, my strength, my peace and my home.</p>
       <p>Thank you for every smile, every sacrifice, every prayer, and every beautiful memory we created together.</p>
       <p>Whenever life becomes difficult, your love gives me strength. Whenever I feel lost, your smile gives me hope.</p>
       <p><strong>No matter what happens in life, I will always choose you. I will always love you. I will always cherish you.</strong></p>
       <p>You are not only my wife, you are my greatest blessing.</p>
+      
+      <div class="poem">
+        <span>💖 With every heartbeat, I promise you,</span>
+        <span>My love will remain forever true.</span>
+        <span>Through all the years, through joy and pain,</span>
+        <span>I'll love you more with each new day again.</span>
+        <span>💖</span>
+      </div>
+      
       <p style="font-size: 1.5rem; font-weight: 600; color: #a94444; margin-top: 12px;">Happy 25th Birthday My Love ❤️</p>
-      <p style="margin-top: 24px;">Forever Yours,<br><strong>Pridesh ❤️</strong></p>
+      <p style="margin-top: 24px;">Forever Yours,<br><span class="signature">Pridesh ❤️</span></p>
     </div>
   </div>
 
-  <!-- 10 REASONS -->
+  <!-- ====== 10 REASONS with emojis ====== -->
   <div class="section">
     <h2>🎁 10 Reasons I Love You</h2>
     <div class="divider"></div>
@@ -437,18 +484,34 @@
     </div>
   </div>
 
-  <!-- LAST SURPRISE + REPLY BUTTON -->
+  <!-- ====== LAST SURPRISE + REPLY BUTTON ====== -->
   <div class="section" style="background: rgba(240, 215, 205, 0.4);">
     <h2>💍 One Last Surprise</h2>
     <div class="divider"></div>
+    
+    <div style="font-size: 3rem; margin: 10px 0;">
+      <span class="floating-roses">🌹</span>
+      <span class="floating-roses" style="animation-delay: 2s;">🌹</span>
+      <span class="floating-roses" style="animation-delay: 4s;">🌹</span>
+    </div>
+    
     <p style="font-size: 2.3rem; font-weight: 300; color: #352221; margin: 15px 0;">
       Will You Keep Loving Me<br> For The Rest Of Our Lives? ❤️
     </p>
     <div style="font-size: 5.5rem; margin: 20px 0;">💖</div>
     <p style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #9e4040;">— yes, forever —</p>
     
+    <!-- Romantic Promise -->
+    <div style="margin: 25px auto; max-width: 500px; padding: 15px; background: rgba(255, 235, 225, 0.3); border-radius: 30px; border: 1px dashed #dba0a0;">
+      <p style="font-size: 1.1rem; font-weight: 300; color: #4d2e2b;">
+        <span style="font-size: 1.5rem;">💕</span> 
+        "I promise to love you, cherish you, and make you smile every single day for the rest of my life."
+        <span style="font-size: 1.5rem;">💕</span>
+      </p>
+    </div>
+    
     <!-- ===== STYLISH REPLY BUTTON ===== -->
-    <div style="margin-top: 40px;">
+    <div style="margin-top: 30px;">
       <a href="https://wa.me/919500134256?text=❤️%20Happy%20Birthday%20My%20Love%20Sneha!%20I%20love%20you%20forever%20and%20always!%20Thank%20you%20for%20everything.%20You%20are%20my%20world!%20💕" 
          target="_blank" 
          class="reply-btn">
@@ -460,13 +523,16 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- ====== FOOTER ====== -->
   <div class="footer">
     ❤️ Since <strong>01 June 2026</strong> ❤️
     <br><br>
     Happy 25th Birthday <strong>Sneha</strong> ❤️
     <br><br>
     <span style="font-size: 2.8rem; display: block; margin-top: 8px;">✨🕊️✨</span>
+    <div style="margin-top: 15px; font-size: 1rem; opacity: 0.5;">
+      "Every day with you is a gift from above"
+    </div>
   </div>
 
   <script>
