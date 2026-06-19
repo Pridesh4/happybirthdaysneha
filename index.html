@@ -154,6 +154,28 @@
       box-shadow: 0 25px 45px -8px #a94444b3;
       background: linear-gradient(135deg, #d67a7a, #a94444);
     }
+    .next-btn {
+      display: inline-block;
+      padding: 14px 40px;
+      background: linear-gradient(135deg, #6c5ce7, #a855f7);
+      color: #fff;
+      border: none;
+      border-radius: 80px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      box-shadow: 0 12px 30px -8px rgba(108, 92, 231, 0.4);
+      transition: all 0.3s ease;
+      letter-spacing: 0.6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .next-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 40px -8px rgba(108, 92, 231, 0.5);
+      background: linear-gradient(135deg, #7c6cf7, #b86cf7);
+    }
     .reply-btn {
       display: inline-block;
       padding: 20px 55px;
@@ -435,15 +457,20 @@
       font-weight: 600;
     }
 
-    /* ===== GIFT BOX WITH BURST ANIMATION ===== */
-    #giftSection {
+    /* ===== PAGE NAVIGATION ===== */
+    .page {
       display: none;
-      padding: 20px 0;
+      animation: pageFade 0.6s ease forwards;
     }
-    #giftSection.active {
+    .page.active {
       display: block;
     }
-    
+    @keyframes pageFade {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== GIFT BOX ===== */
     .gift-wrapper {
       position: relative;
       width: 220px;
@@ -453,8 +480,6 @@
       align-items: center;
       justify-content: center;
     }
-    
-    /* Gift Box */
     .gift-box {
       position: relative;
       width: 200px;
@@ -533,8 +558,6 @@
       border-radius: 4px;
       z-index: 3;
     }
-    
-    /* ===== BURST ANIMATION STATES ===== */
     .gift-box.burst .gift-lid {
       transform: translateX(-50%) rotateX(-150deg) translateY(-40px) scale(1.1);
       opacity: 0;
@@ -543,8 +566,6 @@
       transform: translateX(-50%) scale(1.3);
       opacity: 0;
     }
-    
-    /* Image emerging from box */
     .emerge-image {
       position: absolute;
       top: 50%;
@@ -565,8 +586,6 @@
       transform: translate(-50%, -50%) scale(1);
       opacity: 1;
     }
-    
-    /* Quote below */
     .gift-quote {
       opacity: 0;
       transform: translateY(30px);
@@ -595,7 +614,49 @@
       font-weight: 600;
     }
 
-    /* Sparkle container */
+    /* ===== VIDEO PAGE ===== */
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 20px auto;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      background: #000;
+    }
+    .video-container video {
+      width: 100%;
+      display: block;
+      border-radius: 30px;
+    }
+    .video-container .play-btn-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+    .video-container .play-btn-overlay:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: #fff;
+    }
+    .video-container .play-btn-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
     .sparkle-container {
       position: fixed;
       top: 0;
@@ -638,6 +699,7 @@
       .emerge-image { width: 150px; height: 150px; }
       .gift-quote { font-size: 1.3rem; padding: 15px; }
       .gift-wrapper { width: 170px; height: 170px; }
+      .next-btn { padding: 12px 30px; font-size: 1rem; }
     }
   </style>
 </head>
@@ -664,232 +726,304 @@
     <span>🎵</span> Music Playing <span>❤️</span>
   </div>
 
-  <!-- ====== HERO ====== -->
-  <div class="hero glass">
-    <h1>🎂 Happy 25th Birthday<br>My Beautiful Wife Sneha ❤️</h1>
-    <p>
-      You are my happiness, my peace, my best friend,<br>
-      and God's greatest blessing in my life.
-    </p>
-    <button class="button" onclick="openGift()">Open My Surprise ❤️</button>
-    <div style="margin-top: 30px; font-size: 1.1rem; opacity: 0.6; letter-spacing: 1px;">— forever yours, Pridesh —</div>
+  <!-- ====== PAGE 1: HERO ====== -->
+  <div class="page active" id="page1">
+    <div class="hero glass">
+      <h1>🎂 Happy 25th Birthday<br>My Beautiful Wife Sneha ❤️</h1>
+      <p>
+        You are my happiness, my peace, my best friend,<br>
+        and God's greatest blessing in my life.
+      </p>
+      <button class="button" onclick="goToPage(2)">Open My Surprise ❤️</button>
+      <div style="margin-top: 30px; font-size: 1.1rem; opacity: 0.6; letter-spacing: 1px;">— forever yours, Pridesh —</div>
+    </div>
+    <button class="next-btn" onclick="goToPage(2)">Next ➜</button>
   </div>
 
-  <!-- ====== GIFT SECTION ====== -->
-  <div id="giftSection" class="section">
-    <h2>🎁 A Special Gift For You</h2>
-    <div class="divider"></div>
+  <!-- ====== PAGE 2: GIFT BOX ====== -->
+  <div class="page" id="page2">
+    <div class="section">
+      <h2>🎁 A Special Gift For You</h2>
+      <div class="divider"></div>
+      
+      <div class="gift-wrapper">
+        <div class="gift-box" id="giftBox" onclick="openGift()">
+          <div class="gift-lid"></div>
+          <div class="gift-body">
+            <div class="gift-ribbon"></div>
+          </div>
+        </div>
+        <img src="pic11.jpg" alt="Special Memory ❤️" class="emerge-image" id="emergeImage">
+      </div>
+      
+      <div class="gift-quote" id="giftQuote">
+        <span class="heart-glow">💖</span><br>
+        You are my today and all of my tomorrows.<br>
+        <span class="highlight">I fall in love with you more and more</span><br>
+        <span class="highlight">with every passing moment.</span><br>
+        <span style="font-size: 2.5rem;">❤️</span>
+      </div>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.5;">Click the gift box to open it 🎁</p>
+      <button class="next-btn" onclick="goToPage(3)">Next ➜</button>
+    </div>
+  </div>
+
+  <!-- ====== PAGE 3: COUNTDOWN & GALLERY ====== -->
+  <div class="page" id="page3">
+    <div class="section">
+      <h2>⏳ Countdown To Your Day</h2>
+      <div id="countdown" class="countdown"></div>
+      <div class="divider" style="margin-top: 28px;"></div>
+      <p style="margin-top: 16px; font-weight: 300; opacity: 0.75;">Every second brings us closer to your smile</p>
+      <button class="next-btn" onclick="goToPage(4)">Next ➜</button>
+    </div>
     
-    <div class="gift-wrapper">
-      <!-- Gift Box -->
-      <div class="gift-box" id="giftBox" onclick="openGift()">
-        <div class="gift-lid"></div>
-        <div class="gift-body">
-          <div class="gift-ribbon"></div>
+    <div class="section">
+      <h2>📸 Our Beautiful Memories</h2>
+      <div class="gallery">
+        <img src="pic1.jpg" alt="memory" loading="lazy">
+        <img src="pic2.jpg" alt="memory" loading="lazy">
+        <img src="pic3.JPG" alt="memory" loading="lazy">
+        <img src="pic4.jpg" alt="memory" loading="lazy">
+        <img src="pic5.JPG" alt="memory" loading="lazy">
+        <img src="pic6.JPG" alt="memory" loading="lazy">
+        <img src="pic7.JPG" alt="memory" loading="lazy">
+        <img src="pic8.JPG" alt="memory" loading="lazy">
+        <img src="pic9.JPG" alt="memory" loading="lazy">
+        <img src="pic10.JPG" alt="memory" loading="lazy">
+      </div>
+      <button class="next-btn" onclick="goToPage(4)">Next ➜</button>
+    </div>
+  </div>
+
+  <!-- ====== PAGE 4: LETTER ====== -->
+  <div class="page" id="page4">
+    <div class="section" id="letter">
+      <h2>💌 My Letter To You</h2>
+      <div class="divider"></div>
+      <div class="letter-content">
+        <p><strong>My Dearest Sneha ❤️</strong></p>
+        
+        <div class="short-note"><span class="note-emoji">💫</span> You walked into my life and made it beautiful.</div>
+        <div class="short-note"><span class="note-emoji">🌅</span> Every morning with you is a blessing I don't deserve.</div>
+        <div class="short-note"><span class="note-emoji">💕</span> Your smile heals my soul, your love completes my heart.</div>
+        <div class="short-note"><span class="note-emoji">🌟</span> You are my strength when I'm weak, my peace in every storm.</div>
+        <div class="short-note"><span class="note-emoji">🤝</span> Thank you for loving me even when I'm not perfect.</div>
+        <div class="short-note"><span class="note-emoji">🔥</span> No matter what, I will always choose you. Always.</div>
+        <div class="short-note"><span class="note-emoji">💖</span> You are not my wife — you are my miracle.</div>
+        
+        <div class="poem" style="margin-top: 15px;">
+          <span>🌹 With every heartbeat, I promise you,</span>
+          <span>My love will remain forever true.</span>
+          <span>Through all the years, through joy and pain,</span>
+          <span>I'll love you more with each new day again.</span>
+          <span>🌹</span>
+        </div>
+        
+        <p style="font-size: 1.5rem; font-weight: 600; color: #a94444; margin-top: 12px;">Happy 25th Birthday My Love ❤️</p>
+        <p style="margin-top: 24px;">Forever Yours,<br><span class="signature">Pridesh ❤️</span></p>
+      </div>
+      <button class="next-btn" onclick="goToPage(5)">Next ➜</button>
+    </div>
+  </div>
+
+  <!-- ====== PAGE 5: 10 REASONS ====== -->
+  <div class="page" id="page5">
+    <div class="section">
+      <h2>🎁 10 Reasons I Love You</h2>
+      <div class="divider"></div>
+      <div class="reason-grid">
+        <div class="reason-item">❤️ Your Beautiful Smile</div>
+        <div class="reason-item">❤️ Your Kind Heart</div>
+        <div class="reason-item">❤️ Your Support</div>
+        <div class="reason-item">❤️ Your Patience</div>
+        <div class="reason-item">❤️ Your Caring Nature</div>
+        <div class="reason-item">❤️ Your Honesty</div>
+        <div class="reason-item">❤️ Your Strength</div>
+        <div class="reason-item">❤️ Your Laughter</div>
+        <div class="reason-item">❤️ Your Love</div>
+        <div class="reason-item highlight">💖 Because You Are You</div>
+      </div>
+      
+      <div style="margin-top: 25px; padding: 15px; background: rgba(255, 235, 225, 0.3); border-radius: 30px; border: 1px solid #dba0a0;">
+        <div class="reason-item" style="background: transparent; border: none; font-size: 1.2rem; padding: 5px;">
+          ❤️ Days Together: <span id="daysTogether" style="color: #a94444; font-weight: 700; font-size: 1.5rem;">0</span> ❤️
+        </div>
+      </div>
+      <button class="next-btn" onclick="goToPage(6)">Next ➜</button>
+    </div>
+  </div>
+
+  <!-- ====== PAGE 6: FINAL PROMISE ====== -->
+  <div class="page" id="page6">
+    <div class="section" style="background: rgba(240, 215, 205, 0.4);">
+      <h2>💍 One Last Surprise</h2>
+      <div class="divider"></div>
+      
+      <div style="font-size: 3rem; margin: 10px 0;">
+        <span class="floating-roses">🌹</span>
+        <span class="floating-roses" style="animation-delay: 2s;">🌹</span>
+        <span class="floating-roses" style="animation-delay: 4s;">🌹</span>
+      </div>
+      
+      <p style="font-size: 2.3rem; font-weight: 300; color: #352221; margin: 15px 0;">
+        Will You Keep Loving Me<br> For The Rest Of Our Lives? ❤️
+      </p>
+      <div style="font-size: 5.5rem; margin: 20px 0;">💖</div>
+      <p style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #9e4040;">— yes, forever —</p>
+      
+      <div class="emotional-promise">
+        <span class="promise-heart">❤️</span> I may not be the perfect husband...<br><br>
+        But I promise to <span class="highlight-text">love</span> you,<br>
+        <span class="highlight-text">respect</span> you,<br>
+        <span class="highlight-text">protect</span> you,<br>
+        <span class="highlight-text">pray</span> for you,<br>
+        and <span class="highlight-text">stand beside</span> you<br><br>
+        for every tomorrow God gives us.<br><br>
+        Until my last heartbeat...<br>
+        <span class="highlight-text" style="font-size: 1.4rem;">you will always be my first choice.</span><br><br>
+        <span class="promise-heart">❤️ Forever & Always ❤️</span>
+      </div>
+      
+      <button class="next-btn" onclick="goToPage(7)" style="background: linear-gradient(135deg, #e84c4c, #c0392b); box-shadow: 0 12px 30px -8px rgba(232, 76, 76, 0.4);">
+        🎵 Let's Go! 🎵
+      </button>
+    </div>
+  </div>
+
+  <!-- ====== PAGE 7: VIDEO PAGE ====== -->
+  <div class="page" id="page7">
+    <div class="section" style="background: rgba(240, 215, 205, 0.3);">
+      <h2>🎵 Happy Birthday To You Sneha! 🎵</h2>
+      <div class="divider"></div>
+      <p style="font-size: 1.3rem; font-weight: 300; color: #5a2d2d; margin-bottom: 20px;">
+        A special song just for you my love ❤️
+      </p>
+      
+      <div class="video-container">
+        <video id="birthdayVideo" preload="metadata">
+          <source src="birthday.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="play-btn-overlay" id="playBtn" onclick="playVideo()">
+          ▶️
         </div>
       </div>
       
-      <!-- Image that emerges from box -->
-      <img src="pic11.jpg" alt="Special Memory ❤️" class="emerge-image" id="emergeImage">
-    </div>
-    
-    <!-- Quote below -->
-    <div class="gift-quote" id="giftQuote">
-      <span class="heart-glow">💖</span><br>
-      You are my today and all of my tomorrows.<br>
-      <span class="highlight">I fall in love with you more and more</span><br>
-      <span class="highlight">with every passing moment.</span><br>
-      <span style="font-size: 2.5rem;">❤️</span>
-    </div>
-    
-    <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.5;">Click the gift box to open it 🎁</p>
-  </div>
-
-  <!-- COUNTDOWN -->
-  <div class="section">
-    <h2>⏳ Countdown To Your Day</h2>
-    <div id="countdown" class="countdown"></div>
-    <div class="divider" style="margin-top: 28px;"></div>
-    <p style="margin-top: 16px; font-weight: 300; opacity: 0.75;">Every second brings us closer to your smile</p>
-  </div>
-
-  <!-- GALLERY -->
-  <div class="section">
-    <h2>📸 Our Beautiful Memories</h2>
-    <div class="gallery">
-      <img src="pic1.jpg" alt="memory" loading="lazy">
-      <img src="pic2.jpg" alt="memory" loading="lazy">
-      <img src="pic3.JPG" alt="memory" loading="lazy">
-      <img src="pic4.jpg" alt="memory" loading="lazy">
-      <img src="pic5.JPG" alt="memory" loading="lazy">
-      <img src="pic6.JPG" alt="memory" loading="lazy">
-      <img src="pic7.JPG" alt="memory" loading="lazy">
-      <img src="pic8.JPG" alt="memory" loading="lazy">
-      <img src="pic9.JPG" alt="memory" loading="lazy">
-      <img src="pic10.JPG" alt="memory" loading="lazy">
-    </div>
-  </div>
-
-  <!-- ====== LETTER with SHORT EMOTIONAL NOTES ====== -->
-  <div class="section" id="letter">
-    <h2>💌 My Letter To You</h2>
-    <div class="divider"></div>
-    <div class="letter-content">
-      <p><strong>My Dearest Sneha ❤️</strong></p>
-      
-      <!-- Short Emotional Notes -->
-      <div class="short-note">
-        <span class="note-emoji">💫</span> You walked into my life and made it beautiful.
-      </div>
-      <div class="short-note">
-        <span class="note-emoji">🌅</span> Every morning with you is a blessing I don't deserve.
-      </div>
-      <div class="short-note">
-        <span class="note-emoji">💕</span> Your smile heals my soul, your love completes my heart.
-      </div>
-      <div class="short-note">
-        <span class="note-emoji">🌟</span> You are my strength when I'm weak, my peace in every storm.
-      </div>
-      <div class="short-note">
-        <span class="note-emoji">🤝</span> Thank you for loving me even when I'm not perfect.
-      </div>
-      <div class="short-note">
-        <span class="note-emoji">🔥</span> No matter what, I will always choose you. Always.
-      </div>
-      <div class="short-note">
-        <span class="note-emoji">💖</span> You are not my wife — you are my miracle.
+      <div style="margin-top: 20px; font-size: 1.2rem; color: #5a2d2d;">
+        <span style="font-size: 2rem;">🎂</span> Happy 25th Birthday Sneha! <span style="font-size: 2rem;">🎂</span>
+        <br><br>
+        <span style="font-family: 'Dancing Script', cursive; font-size: 2rem; color: #a94444;">I Love You Forever ❤️</span>
       </div>
       
-      <!-- Romantic Poem -->
-      <div class="poem" style="margin-top: 15px;">
-        <span>🌹 With every heartbeat, I promise you,</span>
-        <span>My love will remain forever true.</span>
-        <span>Through all the years, through joy and pain,</span>
-        <span>I'll love you more with each new day again.</span>
-        <span>🌹</span>
-      </div>
-      
-      <p style="font-size: 1.5rem; font-weight: 600; color: #a94444; margin-top: 12px;">Happy 25th Birthday My Love ❤️</p>
-      <p style="margin-top: 24px;">Forever Yours,<br><span class="signature">Pridesh ❤️</span></p>
-    </div>
-  </div>
-
-  <!-- ====== 10 REASONS with DAYS TOGETHER ====== -->
-  <div class="section">
-    <h2>🎁 10 Reasons I Love You</h2>
-    <div class="divider"></div>
-    <div class="reason-grid">
-      <div class="reason-item">❤️ Your Beautiful Smile</div>
-      <div class="reason-item">❤️ Your Kind Heart</div>
-      <div class="reason-item">❤️ Your Support</div>
-      <div class="reason-item">❤️ Your Patience</div>
-      <div class="reason-item">❤️ Your Caring Nature</div>
-      <div class="reason-item">❤️ Your Honesty</div>
-      <div class="reason-item">❤️ Your Strength</div>
-      <div class="reason-item">❤️ Your Laughter</div>
-      <div class="reason-item">❤️ Your Love</div>
-      <div class="reason-item highlight">💖 Because You Are You</div>
-    </div>
-    
-    <!-- Days Together Counter -->
-    <div style="margin-top: 25px; padding: 15px; background: rgba(255, 235, 225, 0.3); border-radius: 30px; border: 1px solid #dba0a0;">
-      <div class="reason-item" style="background: transparent; border: none; font-size: 1.2rem; padding: 5px;">
-        ❤️ Days Together: <span id="daysTogether" style="color: #a94444; font-weight: 700; font-size: 1.5rem;">0</span> ❤️
+      <!-- WhatsApp Reply Button -->
+      <div style="margin-top: 30px;">
+        <a href="https://wa.me/919500134256" target="_blank" class="reply-btn">
+          Reply To My Love ❤️
+        </a>
+        <p style="margin-top: 16px; font-size: 0.95rem; opacity: 0.6; font-weight: 300;">
+          Click to send your reply on WhatsApp 💬
+        </p>
       </div>
     </div>
-  </div>
-
-  <!-- ====== FINAL EMOTIONAL PROMISE + LAST SURPRISE + REPLY BUTTON ====== -->
-  <div class="section" style="background: rgba(240, 215, 205, 0.4);">
-    <h2>💍 One Last Surprise</h2>
-    <div class="divider"></div>
     
-    <div style="font-size: 3rem; margin: 10px 0;">
-      <span class="floating-roses">🌹</span>
-      <span class="floating-roses" style="animation-delay: 2s;">🌹</span>
-      <span class="floating-roses" style="animation-delay: 4s;">🌹</span>
-    </div>
-    
-    <p style="font-size: 2.3rem; font-weight: 300; color: #352221; margin: 15px 0;">
-      Will You Keep Loving Me<br> For The Rest Of Our Lives? ❤️
-    </p>
-    <div style="font-size: 5.5rem; margin: 20px 0;">💖</div>
-    <p style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #9e4040;">— yes, forever —</p>
-    
-    <!-- ====== FINAL EMOTIONAL PROMISE ====== -->
-    <div class="emotional-promise">
-      <span class="promise-heart">❤️</span> I may not be the perfect husband...<br><br>
-      But I promise to <span class="highlight-text">love</span> you,<br>
-      <span class="highlight-text">respect</span> you,<br>
-      <span class="highlight-text">protect</span> you,<br>
-      <span class="highlight-text">pray</span> for you,<br>
-      and <span class="highlight-text">stand beside</span> you<br><br>
-      for every tomorrow God gives us.<br><br>
-      Until my last heartbeat...<br>
-      <span class="highlight-text" style="font-size: 1.4rem;">you will always be my first choice.</span><br><br>
-      <span class="promise-heart">❤️ Forever & Always ❤️</span>
-    </div>
-    
-    <!-- ===== STYLISH REPLY BUTTON - EMPTY TEXT ===== -->
-    <div style="margin-top: 30px;">
-      <a href="https://wa.me/919500134256" 
-         target="_blank" 
-         class="reply-btn">
-        Reply To My Love ❤️
-      </a>
-      <p style="margin-top: 16px; font-size: 0.95rem; opacity: 0.6; font-weight: 300;">
-        Click to send your reply on WhatsApp 💬
-      </p>
-    </div>
-  </div>
-
-  <!-- ====== FOOTER ====== -->
-  <div class="footer">
-    ❤️ Since <strong>01 June 2026</strong> ❤️
-    <br><br>
-    Happy 25th Birthday <strong>Sneha</strong> ❤️
-    <br><br>
-    <span style="font-size: 2.8rem; display: block; margin-top: 8px;">✨🕊️✨</span>
-    <div style="margin-top: 15px; font-size: 1rem; opacity: 0.5;">
-      "Every day with you is a gift from above"
+    <!-- Footer -->
+    <div class="footer">
+      ❤️ Since <strong>01 June 2026</strong> ❤️
+      <br><br>
+      Happy 25th Birthday <strong>Sneha</strong> ❤️
+      <br><br>
+      <span style="font-size: 2.8rem; display: block; margin-top: 8px;">✨🕊️✨</span>
+      <div style="margin-top: 15px; font-size: 1rem; opacity: 0.5;">
+        "Every day with you is a gift from above"
+      </div>
     </div>
   </div>
 
   <script>
+    // ========== PAGE NAVIGATION ==========
+    let currentPage = 1;
+    const totalPages = 7;
+
+    function goToPage(pageNum) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      // Show target page
+      const target = document.getElementById('page' + pageNum);
+      if (target) {
+        target.classList.add('active');
+        currentPage = pageNum;
+        // Scroll to top of page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // If on page 2, trigger gift box animation after a moment
+        if (pageNum === 2) {
+          setTimeout(() => {
+            document.getElementById('giftBox').classList.add('burst');
+            setTimeout(() => {
+              document.getElementById('emergeImage').classList.add('show');
+            }, 600);
+            setTimeout(() => {
+              document.getElementById('giftQuote').classList.add('show');
+              createSparkles();
+              for (let i = 0; i < 4; i++) {
+                setTimeout(() => window.autoBurst(), i * 350 + 200);
+              }
+            }, 1200);
+          }, 300);
+        }
+      }
+    }
+
     // ========== GIFT BOX FUNCTION ==========
     function openGift() {
       const giftBox = document.getElementById('giftBox');
-      const giftSection = document.getElementById('giftSection');
       const emergeImage = document.getElementById('emergeImage');
       const giftQuote = document.getElementById('giftQuote');
       
-      // Show gift section if hidden
-      giftSection.classList.add('active');
-      
-      // Add burst class to box (slowly bursts)
-      giftBox.classList.add('burst');
-      
-      // Show image emerging after box starts bursting
-      setTimeout(() => {
-        emergeImage.classList.add('show');
-      }, 600);
-      
-      // Show quote after image appears
-      setTimeout(() => {
-        giftQuote.classList.add('show');
-        // Create sparkles
-        createSparkles();
-        // Trigger extra fireworks
-        for (let i = 0; i < 4; i++) {
-          setTimeout(() => window.autoBurst(), i * 350 + 200);
-        }
-      }, 1200);
-      
-      // Scroll to gift section smoothly
-      setTimeout(() => {
-        giftSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 300);
+      if (!giftBox.classList.contains('burst')) {
+        giftBox.classList.add('burst');
+        setTimeout(() => {
+          emergeImage.classList.add('show');
+        }, 600);
+        setTimeout(() => {
+          giftQuote.classList.add('show');
+          createSparkles();
+          for (let i = 0; i < 4; i++) {
+            setTimeout(() => window.autoBurst(), i * 350 + 200);
+          }
+        }, 1200);
+      }
     }
+
+    // ====== VIDEO PLAYER ======
+    function playVideo() {
+      const video = document.getElementById('birthdayVideo');
+      const playBtn = document.getElementById('playBtn');
+      
+      if (video.paused) {
+        video.play();
+        playBtn.classList.add('hidden');
+        // Trigger fireworks
+        for (let i = 0; i < 6; i++) {
+          setTimeout(() => window.autoBurst(), i * 400 + 100);
+        }
+        // Create sparkles
+        setTimeout(createSparkles, 500);
+      }
+    }
+
+    // Auto-play video when page becomes visible
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) {
+        const video = document.getElementById('birthdayVideo');
+        const playBtn = document.getElementById('playBtn');
+        if (video && video.paused && currentPage === 7) {
+          // Don't auto-play, let user click
+        }
+      }
+    });
 
     // ====== SPARKLE EFFECT ======
     function createSparkles() {
@@ -1112,7 +1246,6 @@
 
       animate();
 
-      // Make autoBurst globally accessible
       window.autoBurst = autoBurst;
 
       canvas.addEventListener('click', (e) => {
