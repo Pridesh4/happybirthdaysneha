@@ -903,7 +903,7 @@
       
       <div class="video-container">
         <video id="birthdayVideo" preload="metadata">
-          <source src="birthday.mp4" type="video/mp4">
+          <source src="birthday.MP4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="play-btn-overlay" id="playBtn" onclick="playVideo()">
@@ -1013,17 +1013,6 @@
         setTimeout(createSparkles, 500);
       }
     }
-
-    // Auto-play video when page becomes visible
-    document.addEventListener('visibilitychange', function() {
-      if (!document.hidden) {
-        const video = document.getElementById('birthdayVideo');
-        const playBtn = document.getElementById('playBtn');
-        if (video && video.paused && currentPage === 7) {
-          // Don't auto-play, let user click
-        }
-      }
-    });
 
     // ====== SPARKLE EFFECT ======
     function createSparkles() {
