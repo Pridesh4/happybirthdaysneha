@@ -589,6 +589,10 @@
       background: rgba(200, 120, 110, 0.2);
       border-color: #b38a7a;
     }
+    .reason-item .bold-text {
+      font-weight: 700;
+      color: #a94444;
+    }
     .footer {
       padding: 16px 14px;
       font-size: 0.9rem;
@@ -729,7 +733,7 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* ALL PAGES - TOP ALIGNED (No centering) */
+    /* ALL PAGES - TOP ALIGNED */
     #page1.active,
     #page2.active,
     #page3.active,
@@ -1124,7 +1128,7 @@
     <span>🎵</span> Music <span>❤️</span>
   </div>
 
-  <!-- ====== PAGE 1: PREMIUM HERO with BIG 1:1 Image (TOP ALIGNED) ====== -->
+  <!-- ====== PAGE 1: PREMIUM HERO ====== -->
   <div class="page active" id="page1">
     <div class="premium-hero glass">
       <div class="hero-image-wrapper">
@@ -1138,7 +1142,6 @@
           and God's greatest blessing in my life. <span>✨</span>
         </p>
         
-        <!-- Premium Countdown with Glow -->
         <div class="countdown-wrapper">
           <span class="countdown-icon">⏳</span>
           <span id="countdown-hero" class="countdown"></span>
@@ -1181,7 +1184,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 3: MEMORIES - Last 2 images in 1:1 ratio ====== -->
+  <!-- ====== PAGE 3: MEMORIES ====== -->
   <div class="page" id="page3">
     <div class="section">
       <h2>📸 Our Beautiful Memories</h2>
@@ -1235,7 +1238,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 5: REASONS - SINGLE COLUMN ====== -->
+  <!-- ====== PAGE 5: REASONS - "Your Sacrifice" BOLD ====== -->
   <div class="page" id="page5">
     <div class="section">
       <h2>🎁 10 Reasons I Love You</h2>
@@ -1245,7 +1248,7 @@
         <div class="reason-item">❤️ Your Heart - So pure and full of love</div>
         <div class="reason-item">❤️ Your Support - You always believe in me</div>
         <div class="reason-item">❤️ Your Care - You always put others first</div>
-        <div class="reason-item">❤️ Your Sacrifice - You give so much for us</div>
+        <div class="reason-item"><span class="bold-text">❤️ Your Sacrifice</span> - You give so much for us</div>
         <div class="reason-item">❤️ Your Honesty - You are always true to me</div>
         <div class="reason-item">❤️ Your Laughter - The most beautiful sound</div>
         <div class="reason-item">❤️ Your Love - It's the greatest gift I've ever received</div>
@@ -1312,7 +1315,6 @@
         </div>
       </div>
       
-      <!-- Video Controls: Play & Download -->
       <div class="video-controls">
         <button class="button button-small" onclick="togglePlay()" style="background: linear-gradient(135deg, #cb6b6b, #a94444); box-shadow: 0 6px 18px -6px rgba(160, 60, 60, 0.3);">
           ⏯️ Play/Pause
@@ -1407,18 +1409,14 @@
         gallery.addEventListener('scroll', function() {
           const scrollTop = gallery.scrollTop;
           const maxScroll = gallery.scrollHeight - gallery.clientHeight;
-          
-          // Calculate opacity based on scroll position
-          // At top: 1.0 (fully visible), at bottom: 0.4 (faded)
           const scrollPercent = maxScroll > 0 ? scrollTop / maxScroll : 0;
-          const opacity = 1 - (scrollPercent * 0.6); // Fades from 1.0 to 0.4
-          
+          const opacity = 1 - (scrollPercent * 0.6);
           nextBtn.style.opacity = Math.max(0.4, opacity);
         });
       }
     });
 
-    // ====== VIDEO PLAYER with VOLUME CONTROL ======
+    // ====== VIDEO PLAYER ======
     let bgMusicVolume = 0.35;
     let isVideoPlaying = false;
 
@@ -1429,7 +1427,6 @@
       
       if (video.paused) {
         bgMusicVolume = bgMusic.volume;
-        
         let vol = bgMusic.volume;
         const fadeInterval = setInterval(() => {
           vol = Math.max(vol - 0.05, 0.02);
@@ -1522,7 +1519,7 @@
     setInterval(updateCountdowns, 1000);
     updateCountdowns();
 
-    // ========== MUSIC: ALWAYS ON with GRADUAL VOLUME ==========
+    // ========== MUSIC ==========
     (function() {
       const audio = document.getElementById('bgmusic');
       let isPlaying = false;
