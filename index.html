@@ -246,19 +246,37 @@
       text-align: center;
       margin: 0 auto;
     }
+    
+    /* PAGE 3 - SINGLE COLUMN GALLERY */
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
       margin: 10px 0;
       text-align: center;
       max-width: 440px;
       margin-left: auto;
       margin-right: auto;
+      max-height: 480px;
+      overflow-y: auto;
+      padding: 6px 8px 6px 8px;
+      scrollbar-width: thin;
+      scrollbar-color: #dba0a0 rgba(255, 235, 225, 0.3);
+    }
+    .gallery::-webkit-scrollbar {
+      width: 5px;
+    }
+    .gallery::-webkit-scrollbar-track {
+      background: rgba(255, 235, 225, 0.3);
+      border-radius: 10px;
+    }
+    .gallery::-webkit-scrollbar-thumb {
+      background: #dba0a0;
+      border-radius: 10px;
     }
     .gallery img {
       width: 100%;
-      height: 180px;
+      height: 220px;
       object-fit: cover;
       border-radius: 18px;
       box-shadow: 0 6px 14px -10px rgba(60, 30, 30, 0.12);
@@ -272,6 +290,44 @@
       box-shadow: 0 12px 22px -10px #a0555580;
       border-color: #dba0a0;
     }
+    
+    /* Page 3 - Next Button with Opacity on Scroll */
+    .gallery-wrapper {
+      position: relative;
+    }
+    .gallery-next-btn {
+      display: block;
+      margin: 10px auto 4px;
+      padding: 10px 26px;
+      background: linear-gradient(135deg, #cb6b6b, #a94444);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-decoration: none;
+      box-shadow: 0 8px 20px -8px rgba(160, 60, 60, 0.35);
+      transition: all 0.3s ease;
+      letter-spacing: 0.4px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      text-align: center;
+      cursor: pointer;
+      position: sticky;
+      bottom: 0;
+      z-index: 10;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-next-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 25px -8px #a94444b3;
+      background: linear-gradient(135deg, #d67a7a, #a94444);
+    }
+    .gallery-next-btn.fade {
+      opacity: 0.3;
+    }
+    
     .letter-content {
       font-size: 0.9rem;
       line-height: 1.6;
@@ -484,17 +540,17 @@
     /* ===== GIFT BOX - MUCH BIGGER ===== */
     .gift-wrapper {
       position: relative;
-      width: 300px;
-      height: 300px;
-      margin: 12px auto 12px;
+      width: 340px;
+      height: 340px;
+      margin: 8px auto 10px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .gift-box {
       position: relative;
-      width: 220px;
-      height: 190px;
+      width: 260px;
+      height: 220px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
@@ -503,13 +559,13 @@
     }
     .gift-lid {
       position: absolute;
-      top: -24px;
+      top: -28px;
       left: 50%;
       transform: translateX(-50%);
-      width: 210px;
-      height: 34px;
+      width: 250px;
+      height: 40px;
       background: linear-gradient(145deg, #e84c4c, #c0392b);
-      border-radius: 12px 12px 0 0;
+      border-radius: 14px 14px 0 0;
       box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
       transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
       transform-origin: bottom center;
@@ -521,17 +577,17 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 2.4rem;
+      font-size: 2.8rem;
     }
     .gift-body {
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 210px;
-      height: 168px;
+      width: 250px;
+      height: 195px;
       background: linear-gradient(145deg, #e84c4c, #c0392b);
-      border-radius: 0 0 16px 16px;
+      border-radius: 0 0 18px 18px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.2);
       z-index: 1;
       transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -542,7 +598,7 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 14px;
+      width: 16px;
       height: 100%;
       background: rgba(255,215,0,0.4);
       border-radius: 3px;
@@ -554,7 +610,7 @@
       left: 0;
       transform: translateY(-50%);
       width: 100%;
-      height: 14px;
+      height: 16px;
       background: rgba(255,215,0,0.4);
       border-radius: 3px;
     }
@@ -563,7 +619,7 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 18px;
+      width: 20px;
       height: 100%;
       background: rgba(255,215,0,0.5);
       border-radius: 3px;
@@ -583,9 +639,9 @@
       left: 50%;
       transform: translate(-50%, -50%) scale(0.3);
       opacity: 0;
-      width: 220px;
-      height: 220px;
-      border-radius: 22px;
+      width: 260px;
+      height: 260px;
+      border-radius: 24px;
       object-fit: cover;
       box-shadow: 0 10px 25px rgba(0,0,0,0.25);
       border: 3px solid rgba(255,255,255,0.7);
@@ -787,17 +843,18 @@
       .reply-btn { padding: 10px 24px; font-size: 0.85rem; }
       .reply-btn::before { font-size: 0.9rem; }
       
-      /* Page 2 - Mobile adjustments */
-      .gift-wrapper { width: 220px; height: 220px; margin: 8px auto; }
-      .gift-box { width: 160px; height: 140px; }
-      .gift-lid { width: 152px; height: 26px; top: -18px; }
-      .gift-lid::after { font-size: 1.8rem; }
-      .gift-body { width: 152px; height: 124px; }
-      .emerge-image { width: 160px; height: 160px; }
+      /* Page 2 - Mobile adjustments - EVEN BIGGER */
+      .gift-wrapper { width: 260px; height: 260px; margin: 6px auto; }
+      .gift-box { width: 190px; height: 165px; }
+      .gift-lid { width: 182px; height: 32px; top: -22px; }
+      .gift-lid::after { font-size: 2.2rem; }
+      .gift-body { width: 182px; height: 148px; }
+      .emerge-image { width: 190px; height: 190px; }
       
       /* Page 3 - Mobile adjustments */
-      .gallery { gap: 8px; max-width: 340px; }
-      .gallery img { height: 120px; border-radius: 14px; }
+      .gallery { max-height: 400px; gap: 10px; padding: 4px 6px; }
+      .gallery img { height: 180px; border-radius: 14px; }
+      .gallery-next-btn { font-size: 0.7rem; padding: 8px 20px; }
       
       .letter-content { font-size: 0.78rem; padding: 8px 10px; }
       .letter-content .short-note { font-size: 0.72rem; }
@@ -862,7 +919,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 2: GIFT BOX - BIGGER IMAGE ====== -->
+  <!-- ====== PAGE 2: GIFT BOX - EVEN BIGGER ====== -->
   <div class="page" id="page2">
     <div class="section">
       <h2>🎁 A Special Gift For You</h2>
@@ -892,12 +949,13 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 3: MEMORIES - 2 PER ROW, BIGGER ====== -->
+  <!-- ====== PAGE 3: MEMORIES - SINGLE COLUMN, SCROLLABLE ====== -->
   <div class="page" id="page3">
     <div class="section">
       <h2>📸 Our Beautiful Memories</h2>
       <div class="divider"></div>
-      <div class="gallery">
+      
+      <div class="gallery" id="galleryContainer">
         <img src="pic1.jpg" alt="memory" loading="lazy">
         <img src="pic2.jpg" alt="memory" loading="lazy">
         <img src="pic3.JPG" alt="memory" loading="lazy">
@@ -909,7 +967,8 @@
         <img src="pic9.JPG" alt="memory" loading="lazy">
         <img src="pic10.JPG" alt="memory" loading="lazy">
       </div>
-      <button class="button button-small" onclick="goToPage(4)" style="margin-top:8px;">Next →</button>
+      
+      <button class="gallery-next-btn" id="galleryNextBtn" onclick="goToPage(4)">Next →</button>
     </div>
   </div>
 
@@ -1111,6 +1170,26 @@
         }, 1200);
       }
     }
+
+    // ========== PAGE 3 - SCROLL OPACITY FOR NEXT BUTTON ==========
+    document.addEventListener('DOMContentLoaded', function() {
+      const gallery = document.getElementById('galleryContainer');
+      const nextBtn = document.getElementById('galleryNextBtn');
+      
+      if (gallery && nextBtn) {
+        gallery.addEventListener('scroll', function() {
+          const scrollTop = gallery.scrollTop;
+          const maxScroll = gallery.scrollHeight - gallery.clientHeight;
+          
+          // Calculate opacity based on scroll position
+          // At top: 1.0 (fully visible), at bottom: 0.4 (faded)
+          const scrollPercent = maxScroll > 0 ? scrollTop / maxScroll : 0;
+          const opacity = 1 - (scrollPercent * 0.6); // Fades from 1.0 to 0.4
+          
+          nextBtn.style.opacity = Math.max(0.4, opacity);
+        });
+      }
+    });
 
     // ====== VIDEO PLAYER with VOLUME CONTROL ======
     let bgMusicVolume = 0.35;
