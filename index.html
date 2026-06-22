@@ -68,9 +68,9 @@
       border: 1px solid rgba(255, 215, 210, 0.35);
       box-shadow: 0 15px 30px -12px rgba(90, 40, 30, 0.12);
       border-radius: 28px;
-      padding: 18px 14px;
-      margin: 6px auto;
-      max-width: 440px;
+      padding: 20px 16px;
+      margin: 8px auto;
+      max-width: 500px;
       width: 100%;
       text-align: center;
       position: relative;
@@ -82,9 +82,9 @@
       -webkit-backdrop-filter: blur(6px);
       border: 1px solid rgba(255, 210, 200, 0.25);
       border-radius: 24px;
-      padding: 16px 12px;
-      margin: 6px auto;
-      max-width: 440px;
+      padding: 18px 14px;
+      margin: 8px auto;
+      max-width: 500px;
       width: 100%;
       box-shadow: 0 8px 20px rgba(100, 50, 40, 0.05);
       text-align: center;
@@ -92,7 +92,7 @@
       z-index: 1;
     }
     .hero {
-      padding: 20px 14px 16px;
+      padding: 24px 16px 20px;
       background: rgba(255, 235, 225, 0.4);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -106,46 +106,46 @@
     }
     .hero::after {
       content: "✨";
-      font-size: 60px;
+      font-size: 70px;
       position: absolute;
-      bottom: -10px;
-      right: -5px;
+      bottom: -15px;
+      right: -8px;
       opacity: 0.06;
       transform: rotate(-8deg);
       pointer-events: none;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
+      font-size: 2.0rem;
       font-weight: 700;
       letter-spacing: -0.3px;
       background: linear-gradient(145deg, #a84c4c, #772f2f);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       line-height: 1.2;
       text-align: center;
     }
     .hero p {
-      font-size: 0.8rem;
+      font-size: 0.95rem;
       font-weight: 300;
       color: #402b29;
-      max-width: 340px;
-      margin: 0 auto 8px;
-      line-height: 1.4;
+      max-width: 360px;
+      margin: 0 auto 10px;
+      line-height: 1.5;
       letter-spacing: 0.2px;
       text-align: center;
     }
     .button {
       display: inline-block;
-      padding: 10px 28px;
+      padding: 12px 32px;
       background: linear-gradient(135deg, #cb6b6b, #a94444);
       color: #fff;
       border: none;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       text-decoration: none;
       box-shadow: 0 8px 20px -8px rgba(160, 60, 60, 0.35);
       transition: all 0.3s ease;
@@ -161,18 +161,18 @@
       background: linear-gradient(135deg, #d67a7a, #a94444);
     }
     .button-small {
-      padding: 8px 22px;
-      font-size: 0.7rem;
+      padding: 10px 26px;
+      font-size: 0.8rem;
     }
     .reply-btn {
       display: inline-block;
-      padding: 10px 28px;
+      padding: 12px 32px;
       background: linear-gradient(135deg, #25D366, #128C7E);
       color: #fff;
       border: none;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       text-decoration: none;
       box-shadow: 0 10px 25px -8px rgba(37, 211, 102, 0.4);
       transition: all 0.3s ease;
@@ -187,7 +187,7 @@
     .reply-btn::before {
       content: "💬";
       margin-right: 8px;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
     .reply-btn:hover {
       transform: translateY(-3px) scale(1.03);
@@ -197,21 +197,46 @@
     .reply-btn:active {
       transform: scale(0.97);
     }
+    
+    /* Download Button */
+    .download-btn {
+      display: inline-block;
+      padding: 8px 20px;
+      background: linear-gradient(135deg, #6c5ce7, #a855f7);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-decoration: none;
+      box-shadow: 0 6px 18px -6px rgba(108, 92, 231, 0.35);
+      transition: all 0.3s ease;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .download-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 22px -6px rgba(108, 92, 231, 0.5);
+      background: linear-gradient(135deg, #7c6cf7, #b86cf7);
+    }
+    
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: #402220;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       letter-spacing: -0.2px;
       text-align: center;
     }
     .countdown {
-      font-size: 1.0rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: #a94444;
       background: rgba(255, 235, 225, 0.6);
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 40px;
       display: inline-block;
       backdrop-filter: blur(4px);
@@ -225,15 +250,15 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 6px;
-      margin: 6px 0;
+      gap: 8px;
+      margin: 8px 0;
       text-align: center;
     }
     .gallery img {
-      width: 78px;
-      height: 78px;
+      width: 90px;
+      height: 90px;
       object-fit: cover;
-      border-radius: 16px;
+      border-radius: 18px;
       box-shadow: 0 6px 14px -10px rgba(60, 30, 30, 0.12);
       border: 2px solid rgba(255, 220, 210, 0.3);
       transition: all 0.3s ease;
@@ -246,31 +271,31 @@
       border-color: #dba0a0;
     }
     .letter-content {
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       line-height: 1.6;
       font-weight: 400;
       color: #352221;
       background: rgba(255, 245, 240, 0.25);
-      padding: 10px 12px;
+      padding: 12px 14px;
       border-radius: 18px;
       border-left: 3px solid #dba0a0;
       border-right: 3px solid #dba0a0;
       text-align: center;
-      max-width: 400px;
+      max-width: 440px;
       margin: 6px auto;
       font-family: 'Inter', sans-serif;
     }
     .letter-content .short-note {
-      font-size: 0.72rem;
-      line-height: 1.5;
-      padding: 2px 0;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      padding: 3px 0;
       border-bottom: 1px dashed rgba(180, 120, 110, 0.08);
     }
     .letter-content .short-note:last-child {
       border-bottom: none;
     }
     .letter-content .note-emoji {
-      font-size: 0.9rem;
+      font-size: 1.0rem;
       margin-right: 4px;
     }
     .letter-content strong {
@@ -279,17 +304,17 @@
     }
     .letter-content .signature {
       font-family: 'Dancing Script', cursive;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       color: #a94444;
       margin-top: 4px;
     }
     .reason-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 5px;
-      margin: 8px 0;
+      gap: 6px;
+      margin: 10px 0;
       text-align: center;
-      max-width: 380px;
+      max-width: 420px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -297,10 +322,10 @@
       background: rgba(255, 235, 225, 0.45);
       backdrop-filter: blur(4px);
       border-radius: 25px;
-      padding: 6px 4px;
+      padding: 8px 6px;
       font-weight: 500;
       border: 1px solid rgba(200, 145, 135, 0.2);
-      font-size: 0.68rem;
+      font-size: 0.78rem;
       color: #352221;
       transition: 0.2s;
       box-shadow: 0 3px 8px rgba(0,0,0,0.02);
@@ -316,15 +341,15 @@
       grid-column: span 2;
     }
     .footer {
-      padding: 14px 12px;
-      font-size: 0.8rem;
+      padding: 16px 14px;
+      font-size: 0.9rem;
       font-weight: 300;
       color: #352221;
       background: rgba(235, 210, 200, 0.3);
       backdrop-filter: blur(4px);
       border-radius: 20px;
-      margin: 6px auto;
-      max-width: 440px;
+      margin: 8px auto;
+      max-width: 500px;
       width: 100%;
       border: 1px solid rgba(190, 150, 140, 0.2);
       text-align: center;
@@ -337,16 +362,16 @@
       font-family: 'Playfair Display', serif;
     }
     .divider {
-      width: 35px;
+      width: 40px;
       height: 2px;
       background: linear-gradient(90deg, #dba0a0, #b34a4a, #dba0a0);
-      margin: 6px auto;
+      margin: 8px auto;
       border-radius: 6px;
     }
     .heart-float {
       position: fixed;
       bottom: -80px;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       animation: floatUp 14s linear infinite;
       opacity: 0.1;
       pointer-events: none;
@@ -373,9 +398,9 @@
       right: 10px;
       background: rgba(255, 235, 225, 0.6);
       backdrop-filter: blur(8px);
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 30px;
-      font-size: 0.55rem;
+      font-size: 0.6rem;
       color: #5a3a38;
       border: 1px solid rgba(255, 200, 190, 0.3);
       z-index: 999;
@@ -396,17 +421,17 @@
     }
     .poem {
       font-family: 'Playfair Display', serif;
-      font-size: 0.78rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.7;
       color: #4d2e2b;
       font-style: italic;
-      padding: 3px 0;
+      padding: 4px 0;
     }
     .poem span {
       display: block;
     }
     .floating-roses {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       animation: floatRose 8s ease-in-out infinite;
       display: inline-block;
     }
@@ -415,20 +440,20 @@
       50% { transform: translateY(-6px) rotate(5deg); }
     }
     .emotional-promise {
-      font-size: 0.72rem;
-      line-height: 1.8;
+      font-size: 0.82rem;
+      line-height: 1.9;
       color: #4d2e2b;
       background: rgba(255, 235, 225, 0.3);
-      padding: 10px 12px;
+      padding: 12px 14px;
       border-radius: 18px;
       border: 2px dashed #dba0a0;
-      max-width: 400px;
-      margin: 6px auto;
+      max-width: 440px;
+      margin: 8px auto;
       font-weight: 400;
     }
     .emotional-promise .promise-heart {
       color: #a94444;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
     .emotional-promise .highlight-text {
       color: #a94444;
@@ -440,9 +465,9 @@
       display: none;
       animation: pageFade 0.4s ease forwards;
       width: 100%;
-      max-width: 440px;
+      max-width: 500px;
       margin: 0 auto;
-      padding: 4px;
+      padding: 6px;
     }
     .page.active {
       display: flex;
@@ -458,17 +483,17 @@
     /* ===== GIFT BOX ===== */
     .gift-wrapper {
       position: relative;
-      width: 140px;
-      height: 140px;
-      margin: 8px auto 10px;
+      width: 160px;
+      height: 160px;
+      margin: 12px auto 12px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .gift-box {
       position: relative;
-      width: 120px;
-      height: 105px;
+      width: 135px;
+      height: 115px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
@@ -480,8 +505,8 @@
       top: -16px;
       left: 50%;
       transform: translateX(-50%);
-      width: 115px;
-      height: 20px;
+      width: 128px;
+      height: 22px;
       background: linear-gradient(145deg, #e84c4c, #c0392b);
       border-radius: 10px 10px 0 0;
       box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
@@ -495,15 +520,15 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
     .gift-body {
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 115px;
-      height: 90px;
+      width: 128px;
+      height: 100px;
       background: linear-gradient(145deg, #e84c4c, #c0392b);
       border-radius: 0 0 14px 14px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.2);
@@ -516,7 +541,7 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 8px;
+      width: 10px;
       height: 100%;
       background: rgba(255,215,0,0.4);
       border-radius: 3px;
@@ -528,7 +553,7 @@
       left: 0;
       transform: translateY(-50%);
       width: 100%;
-      height: 8px;
+      height: 10px;
       background: rgba(255,215,0,0.4);
       border-radius: 3px;
     }
@@ -557,9 +582,9 @@
       left: 50%;
       transform: translate(-50%, -50%) scale(0.3);
       opacity: 0;
-      width: 130px;
-      height: 130px;
-      border-radius: 20px;
+      width: 145px;
+      height: 145px;
+      border-radius: 22px;
       object-fit: cover;
       box-shadow: 0 10px 25px rgba(0,0,0,0.25);
       border: 3px solid rgba(255,255,255,0.7);
@@ -575,14 +600,14 @@
       opacity: 0;
       transform: translateY(12px);
       transition: all 0.8s ease 0.5s;
-      margin-top: 10px;
+      margin-top: 14px;
       padding: 10px 14px;
       font-family: 'Playfair Display', serif;
-      font-size: 1.0rem;
+      font-size: 1.05rem;
       color: #5a2d2d;
       line-height: 1.6;
       background: rgba(255, 245, 240, 0.4);
-      border-radius: 20px;
+      border-radius: 18px;
       backdrop-filter: blur(4px);
       border: 1px solid rgba(255, 215, 210, 0.3);
     }
@@ -592,7 +617,7 @@
     }
     .gift-quote .heart-glow {
       color: #a94444;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
     .gift-quote .highlight {
       color: #a94444;
@@ -603,31 +628,31 @@
     .video-container {
       position: relative;
       width: 100%;
-      max-width: 360px;
-      margin: 8px auto;
-      border-radius: 18px;
+      max-width: 400px;
+      margin: 10px auto;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
       background: #000;
     }
     .video-container video {
       width: 100%;
       display: block;
-      border-radius: 18px;
+      border-radius: 20px;
     }
     .video-container .play-btn-overlay {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
       background: rgba(255, 255, 255, 0.9);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
+      font-size: 2.0rem;
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 6px 18px rgba(0,0,0,0.25);
@@ -640,6 +665,13 @@
     .video-container .play-btn-overlay.hidden {
       opacity: 0;
       pointer-events: none;
+    }
+    .video-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
     }
 
     .sparkle-container {
@@ -654,8 +686,8 @@
     }
     .sparkle {
       position: absolute;
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       animation: sparkleAnim 1.5s ease forwards;
     }
@@ -665,127 +697,128 @@
     }
 
     .hero-countdown {
-      margin-top: 6px;
+      margin-top: 8px;
     }
     .hero-countdown .countdown {
-      font-size: 0.9rem;
-      padding: 4px 10px;
+      font-size: 1.0rem;
+      padding: 5px 12px;
     }
 
     /* Page specific fixes */
     #page1 .hero {
-      padding: 18px 12px 16px;
+      padding: 22px 14px 18px;
     }
     #page1 .hero h1 {
-      font-size: 1.6rem;
+      font-size: 1.9rem;
     }
     #page1 .hero p {
-      font-size: 0.78rem;
+      font-size: 0.9rem;
     }
     
     #page2 .section {
-      padding: 14px 10px;
+      padding: 16px 12px;
     }
     
     #page3 .section {
-      padding: 12px 8px;
+      padding: 14px 10px;
     }
     #page3 .gallery img {
-      width: 72px;
-      height: 72px;
-      border-radius: 14px;
+      width: 85px;
+      height: 85px;
+      border-radius: 16px;
     }
     
     #page4 .section {
-      padding: 12px 8px;
+      padding: 14px 10px;
     }
     #page4 .letter-content {
-      padding: 8px 10px;
-      font-size: 0.72rem;
+      padding: 10px 12px;
+      font-size: 0.85rem;
     }
     #page4 .short-note {
-      font-size: 0.7rem;
-      padding: 2px 0;
+      font-size: 0.8rem;
+      padding: 3px 0;
     }
     
     #page5 .section {
-      padding: 12px 8px;
+      padding: 14px 10px;
     }
     #page5 .reason-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 4px;
-      max-width: 340px;
+      gap: 5px;
+      max-width: 380px;
     }
     #page5 .reason-item {
-      font-size: 0.62rem;
-      padding: 5px 3px;
-      border-radius: 20px;
+      font-size: 0.72rem;
+      padding: 6px 4px;
+      border-radius: 22px;
     }
     
     #page6 .section {
-      padding: 12px 8px;
+      padding: 14px 10px;
     }
     #page6 .emotional-promise {
-      font-size: 0.68rem;
-      padding: 8px 10px;
-      line-height: 1.7;
+      font-size: 0.78rem;
+      padding: 10px 12px;
+      line-height: 1.8;
     }
     #page6 .emotional-promise .highlight-text {
-      font-size: 0.82rem !important;
+      font-size: 0.9rem !important;
     }
     #page6 h2 {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
     
     #page7 .section {
-      padding: 10px 8px;
+      padding: 12px 10px;
     }
     #page7 h2 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
     #page7 .video-container {
-      max-width: 330px;
+      max-width: 360px;
     }
 
     @media (max-width: 480px) {
-      .glass { padding: 12px 10px; border-radius: 20px; }
-      .section { padding: 10px 8px; border-radius: 18px; }
-      .hero { padding: 14px 10px 12px; border-radius: 20px; }
-      .hero h1 { font-size: 1.4rem; }
-      .hero p { font-size: 0.72rem; max-width: 300px; }
-      h2 { font-size: 1.2rem; }
-      .countdown { font-size: 0.8rem; padding: 4px 10px; }
-      .button { padding: 8px 20px; font-size: 0.72rem; }
-      .button-small { padding: 6px 16px; font-size: 0.65rem; }
-      .reply-btn { padding: 8px 20px; font-size: 0.78rem; }
-      .reply-btn::before { font-size: 0.8rem; }
-      .gallery img { width: 62px; height: 62px; border-radius: 12px; gap: 4px; }
-      .letter-content { font-size: 0.68rem; padding: 6px 8px; }
-      .letter-content .short-note { font-size: 0.62rem; }
-      .reason-grid { gap: 3px; max-width: 300px; }
-      .reason-item { font-size: 0.55rem; padding: 4px 3px; border-radius: 16px; }
-      .footer { font-size: 0.68rem; padding: 10px 8px; }
-      .emotional-promise { font-size: 0.62rem; padding: 6px 8px; }
-      .gift-box { width: 100px; height: 88px; }
-      .gift-lid { width: 95px; height: 18px; top: -14px; }
-      .gift-lid::after { font-size: 1.1rem; }
-      .gift-body { width: 95px; height: 75px; }
-      .emerge-image { width: 110px; height: 110px; }
-      .gift-wrapper { width: 120px; height: 120px; margin: 6px auto; }
-      .gift-quote { font-size: 0.85rem; padding: 6px 10px; }
-      .video-container .play-btn-overlay { width: 42px; height: 42px; font-size: 1.4rem; }
+      .glass { padding: 14px 10px; border-radius: 20px; }
+      .section { padding: 12px 8px; border-radius: 18px; }
+      .hero { padding: 16px 10px 14px; border-radius: 20px; }
+      .hero h1 { font-size: 1.5rem; }
+      .hero p { font-size: 0.8rem; max-width: 300px; }
+      h2 { font-size: 1.3rem; }
+      .countdown { font-size: 0.85rem; padding: 4px 10px; }
+      .button { padding: 10px 24px; font-size: 0.8rem; }
+      .button-small { padding: 8px 18px; font-size: 0.7rem; }
+      .reply-btn { padding: 10px 24px; font-size: 0.85rem; }
+      .reply-btn::before { font-size: 0.9rem; }
+      .gallery img { width: 70px; height: 70px; border-radius: 14px; gap: 5px; }
+      .letter-content { font-size: 0.78rem; padding: 8px 10px; }
+      .letter-content .short-note { font-size: 0.72rem; }
+      .reason-grid { gap: 4px; max-width: 320px; }
+      .reason-item { font-size: 0.65rem; padding: 5px 3px; border-radius: 18px; }
+      .footer { font-size: 0.75rem; padding: 12px 10px; }
+      .emotional-promise { font-size: 0.7rem; padding: 8px 10px; }
+      .gift-box { width: 105px; height: 90px; }
+      .gift-lid { width: 98px; height: 18px; top: -14px; }
+      .gift-lid::after { font-size: 1.2rem; }
+      .gift-body { width: 98px; height: 78px; }
+      .emerge-image { width: 115px; height: 115px; }
+      .gift-wrapper { width: 130px; height: 130px; margin: 8px auto; }
+      .gift-quote { font-size: 0.85rem; padding: 8px 12px; }
+      .video-container .play-btn-overlay { width: 45px; height: 45px; font-size: 1.5rem; }
       .video-container { max-width: 100%; }
-      .music-indicator { bottom: 6px; right: 6px; padding: 3px 8px; font-size: 0.45rem; }
-      .hero-countdown .countdown { font-size: 0.75rem; padding: 3px 8px; }
-      .poem { font-size: 0.68rem; }
-      .letter-content .signature { font-size: 1.1rem; }
-      #page3 .gallery img { width: 58px; height: 58px; }
-      #page5 .reason-item { font-size: 0.5rem; padding: 3px 2px; }
-      #page6 .emotional-promise { font-size: 0.58rem; padding: 6px 8px; }
-      #page6 .emotional-promise .highlight-text { font-size: 0.72rem !important; }
-      #page7 h2 { font-size: 1.0rem; }
-      #page7 .video-container { max-width: 280px; }
-      .footer { font-size: 0.62rem; padding: 8px 6px; }
+      .music-indicator { bottom: 6px; right: 6px; padding: 3px 8px; font-size: 0.5rem; }
+      .hero-countdown .countdown { font-size: 0.8rem; padding: 3px 10px; }
+      .poem { font-size: 0.78rem; }
+      .letter-content .signature { font-size: 1.2rem; }
+      #page3 .gallery img { width: 65px; height: 65px; }
+      #page5 .reason-item { font-size: 0.6rem; padding: 4px 3px; }
+      #page6 .emotional-promise { font-size: 0.65rem; padding: 8px 10px; }
+      #page6 .emotional-promise .highlight-text { font-size: 0.8rem !important; }
+      #page7 h2 { font-size: 1.1rem; }
+      #page7 .video-container { max-width: 300px; }
+      .footer { font-size: 0.7rem; padding: 10px 8px; }
+      .download-btn { font-size: 0.65rem; padding: 6px 16px; }
     }
   </style>
 </head>
@@ -825,8 +858,8 @@
         <div id="countdown-hero" class="countdown"></div>
       </div>
       
-      <button class="button" onclick="goToPage(2)" style="margin-top:8px;">Open My Surprise ❤️</button>
-      <div style="margin-top:8px; font-size:0.65rem; opacity:0.4; letter-spacing:0.3px;">— forever yours, Pridesh —</div>
+      <button class="button" onclick="goToPage(2)" style="margin-top:10px;">Open My Surprise ❤️</button>
+      <div style="margin-top:10px; font-size:0.7rem; opacity:0.4; letter-spacing:0.3px;">— forever yours, Pridesh —</div>
     </div>
   </div>
 
@@ -852,11 +885,11 @@
         You are my today and all of my tomorrows.<br>
         <span class="highlight">I fall in love with you more and more</span><br>
         <span class="highlight">with every passing moment.</span><br>
-        <span style="font-size:1.4rem;">❤️</span>
+        <span style="font-size:1.5rem;">❤️</span>
       </div>
       
-      <p style="margin-top:6px; font-size:0.65rem; opacity:0.4;">Click the gift box to open it 🎁</p>
-      <button class="button button-small" onclick="goToPage(3)" style="margin-top:6px;">Next →</button>
+      <p style="margin-top:6px; font-size:0.7rem; opacity:0.4;">Click the gift box to open it 🎁</p>
+      <button class="button button-small" onclick="goToPage(3)" style="margin-top:8px;">Next →</button>
     </div>
   </div>
 
@@ -877,7 +910,7 @@
         <img src="pic9.JPG" alt="memory" loading="lazy">
         <img src="pic10.JPG" alt="memory" loading="lazy">
       </div>
-      <button class="button button-small" onclick="goToPage(4)" style="margin-top:6px;">Next →</button>
+      <button class="button button-small" onclick="goToPage(4)" style="margin-top:8px;">Next →</button>
     </div>
   </div>
 
@@ -897,7 +930,7 @@
         <div class="short-note"><span class="note-emoji">🔥</span> I will always choose you.</div>
         <div class="short-note"><span class="note-emoji">💖</span> You are my miracle.</div>
         
-        <div class="poem" style="margin-top:4px;">
+        <div class="poem" style="margin-top:6px;">
           <span>🌹 With every heartbeat, I promise you,</span>
           <span>My love will remain forever true.</span>
           <span>Through all the years, through joy and pain,</span>
@@ -905,10 +938,10 @@
           <span>🌹</span>
         </div>
         
-        <p style="font-size:0.95rem; font-weight:600; color:#a94444; margin-top:4px;">Happy 25th Birthday My Love ❤️</p>
-        <p style="margin-top:6px;">Forever Yours,<br><span class="signature">Pridesh ❤️</span></p>
+        <p style="font-size:1.0rem; font-weight:600; color:#a94444; margin-top:6px;">Happy 25th Birthday My Love ❤️</p>
+        <p style="margin-top:8px;">Forever Yours,<br><span class="signature">Pridesh ❤️</span></p>
       </div>
-      <button class="button button-small" onclick="goToPage(5)" style="margin-top:4px;">Next →</button>
+      <button class="button button-small" onclick="goToPage(5)" style="margin-top:6px;">Next →</button>
     </div>
   </div>
 
@@ -930,12 +963,12 @@
         <div class="reason-item highlight">💖 You Are You</div>
       </div>
       
-      <div style="margin-top:8px; padding:6px; background: rgba(255, 235, 225, 0.3); border-radius:16px; border:1px solid #dba0a0;">
-        <div style="font-size:0.78rem; font-weight:500;">
-          ❤️ Days Together: <span id="daysTogether" style="color:#a94444; font-weight:700; font-size:0.95rem;">0</span> ❤️
+      <div style="margin-top:10px; padding:8px; background: rgba(255, 235, 225, 0.3); border-radius:18px; border:1px solid #dba0a0;">
+        <div style="font-size:0.85rem; font-weight:500;">
+          ❤️ Days Together: <span id="daysTogether" style="color:#a94444; font-weight:700; font-size:1.0rem;">0</span> ❤️
         </div>
       </div>
-      <button class="button button-small" onclick="goToPage(6)" style="margin-top:6px;">Next →</button>
+      <button class="button button-small" onclick="goToPage(6)" style="margin-top:8px;">Next →</button>
     </div>
   </div>
 
@@ -945,16 +978,16 @@
       <h2>💍 One Last Surprise</h2>
       <div class="divider"></div>
       
-      <div style="font-size:1.4rem; margin:3px 0;">
+      <div style="font-size:1.5rem; margin:4px 0;">
         <span class="floating-roses">🌹</span>
         <span class="floating-roses" style="animation-delay: 2s;">🌹</span>
         <span class="floating-roses" style="animation-delay: 4s;">🌹</span>
       </div>
       
-      <p style="font-size:1.1rem; font-weight:300; color:#352221; margin:4px 0;">
+      <p style="font-size:1.15rem; font-weight:300; color:#352221; margin:6px 0;">
         Will You Keep Loving Me<br> For The Rest Of Our Lives? ❤️
       </p>
-      <div style="font-size:2.5rem; margin:4px 0;">💖</div>
+      <div style="font-size:2.8rem; margin:6px 0;">💖</div>
       <p style="font-family:'Playfair Display', serif; font-size:1.0rem; color:#9e4040;">— yes, forever —</p>
       
       <div class="emotional-promise">
@@ -966,11 +999,11 @@
         and <span class="highlight-text">stand beside</span> you<br><br>
         for every tomorrow God gives us.<br><br>
         Until my last heartbeat...<br>
-        <span class="highlight-text" style="font-size:0.9rem;">you will always be my first choice.</span><br><br>
+        <span class="highlight-text" style="font-size:0.95rem;">you will always be my first choice.</span><br><br>
         <span class="promise-heart">❤️ Forever & Always ❤️</span>
       </div>
       
-      <button class="button" onclick="goToPage(7)" style="background: linear-gradient(135deg, #e84c4c, #c0392b); box-shadow: 0 8px 20px -8px rgba(232, 76, 76, 0.35); font-size:0.78rem; padding:8px 24px; margin-top:4px;">
+      <button class="button" onclick="goToPage(7)" style="background: linear-gradient(135deg, #e84c4c, #c0392b); box-shadow: 0 8px 20px -8px rgba(232, 76, 76, 0.35); font-size:0.85rem; padding:10px 28px; margin-top:6px;">
         🎵 Let's Go! 🎵
       </button>
     </div>
@@ -981,7 +1014,7 @@
     <div class="section" style="background: rgba(240, 215, 205, 0.3);">
       <h2>🎵 Happy Birthday Sneha! 🎵</h2>
       <div class="divider"></div>
-      <p style="font-size:0.75rem; font-weight:300; color:#5a2d2d; margin-bottom:6px;">
+      <p style="font-size:0.8rem; font-weight:300; color:#5a2d2d; margin-bottom:8px;">
         A special song just for you my love ❤️
       </p>
       
@@ -995,13 +1028,23 @@
         </div>
       </div>
       
-      <div style="margin-top:8px; font-size:0.8rem; color:#5a2d2d;">
-        <span style="font-size:1.2rem;">🎂</span> Happy 25th Birthday Sneha! <span style="font-size:1.2rem;">🎂</span>
-        <br><br>
-        <span style="font-family:'Dancing Script', cursive; font-size:1.3rem; color:#a94444;">I Love You Forever ❤️</span>
+      <!-- Video Controls: Play & Download -->
+      <div class="video-controls">
+        <button class="button button-small" onclick="togglePlay()" style="background: linear-gradient(135deg, #cb6b6b, #a94444); box-shadow: 0 6px 18px -6px rgba(160, 60, 60, 0.3);">
+          ⏯️ Play/Pause
+        </button>
+        <a href="birthday.MP4" download="Happy_Birthday_Sneha.mp4" class="download-btn">
+          ⬇️ Download Video
+        </a>
       </div>
       
-      <div style="margin-top:10px;">
+      <div style="margin-top:10px; font-size:0.85rem; color:#5a2d2d;">
+        <span style="font-size:1.2rem;">🎂</span> Happy 25th Birthday Sneha! <span style="font-size:1.2rem;">🎂</span>
+        <br><br>
+        <span style="font-family:'Dancing Script', cursive; font-size:1.4rem; color:#a94444;">I Love You Forever ❤️</span>
+      </div>
+      
+      <div style="margin-top:12px;">
         <a href="https://wa.me/919500134256" target="_blank" class="reply-btn">
           Reply To My Love ❤️
         </a>
@@ -1016,7 +1059,7 @@
       <br><br>
       Happy 25th Birthday <strong>Sneha</strong> ❤️
       <br><br>
-      <span style="font-size:1.4rem; display:block; margin-top:3px;">✨🕊️✨</span>
+      <span style="font-size:1.5rem; display:block; margin-top:4px;">✨🕊️✨</span>
       <div style="margin-top:4px; font-size:0.6rem; opacity:0.4;">
         "Every day with you is a gift from above"
       </div>
@@ -1116,6 +1159,17 @@
       }
     }
 
+    function togglePlay() {
+      const video = document.getElementById('birthdayVideo');
+      if (video.paused) {
+        playVideo();
+      } else {
+        video.pause();
+        document.getElementById('playBtn').classList.remove('hidden');
+        isVideoPlaying = false;
+      }
+    }
+
     // ====== SPARKLE EFFECT ======
     function createSparkles() {
       const container = document.createElement('div');
@@ -1123,12 +1177,12 @@
       document.body.appendChild(container);
       
       const colors = ['#FFD700', '#FF6B6B', '#FF69B4', '#FF1493', '#FFA500', '#FFD700', '#FF4500', '#FF6347'];
-      for (let i = 0; i < 40; i++) {
+      for (let i = 0; i < 45; i++) {
         const sparkle = document.createElement('div');
         sparkle.className = 'sparkle';
         sparkle.style.left = Math.random() * 100 + '%';
         sparkle.style.top = Math.random() * 100 + '%';
-        const size = Math.random() * 7 + 3;
+        const size = Math.random() * 8 + 3;
         sparkle.style.width = size + 'px';
         sparkle.style.height = size + 'px';
         sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
