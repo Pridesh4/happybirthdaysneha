@@ -115,12 +115,49 @@
       transform: rotate(-8deg);
       pointer-events: none;
     }
-    .hero h1 {
+    
+    /* ===== PAGE 1 - PREMIUM HERO ===== */
+    .premium-hero {
+      position: relative;
+      padding: 0;
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255, 235, 225, 0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 220, 210, 0.4);
+      box-shadow: 0 20px 40px -15px rgba(90, 40, 30, 0.2);
+    }
+    .premium-hero .hero-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      border-radius: 28px 28px 0 0;
+    }
+    .premium-hero .hero-content {
+      padding: 22px 20px 26px;
+      position: relative;
+      background: linear-gradient(180deg, rgba(255, 245, 240, 0.3) 0%, rgba(255, 245, 240, 0.6) 100%);
+    }
+    .premium-hero .hero-content::before {
+      content: '❤️';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 28px;
+      background: rgba(255, 245, 240, 0.8);
+      padding: 0 12px;
+      border-radius: 50%;
+      backdrop-filter: blur(4px);
+    }
+    .premium-hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.0rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      letter-spacing: -0.3px;
-      background: linear-gradient(145deg, #a84c4c, #772f2f);
+      letter-spacing: -0.5px;
+      background: linear-gradient(145deg, #a84c4c, #6a2525);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -128,16 +165,104 @@
       line-height: 1.2;
       text-align: center;
     }
-    .hero p {
-      font-size: 0.95rem;
+    .premium-hero .subtitle {
+      font-size: 1.0rem;
       font-weight: 300;
       color: #402b29;
-      max-width: 360px;
-      margin: 0 auto 10px;
-      line-height: 1.5;
-      letter-spacing: 0.2px;
+      max-width: 380px;
+      margin: 0 auto 12px;
+      line-height: 1.6;
+      letter-spacing: 0.3px;
       text-align: center;
+      font-style: italic;
     }
+    .premium-hero .subtitle span {
+      font-weight: 600;
+      color: #a94444;
+      font-style: normal;
+    }
+    .premium-hero .countdown-wrapper {
+      background: rgba(255, 235, 225, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 60px;
+      padding: 10px 18px;
+      display: inline-block;
+      border: 1px solid rgba(255, 215, 210, 0.3);
+      box-shadow: 0 4px 20px rgba(160, 60, 60, 0.06);
+      margin-bottom: 14px;
+    }
+    .premium-hero .countdown-wrapper .countdown {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #a94444;
+      letter-spacing: 1px;
+      background: transparent;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      font-family: 'Playfair Display', serif;
+    }
+    .premium-hero .countdown-wrapper .countdown-label {
+      display: block;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #8a5a5a;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .premium-hero .btn-premium {
+      display: inline-block;
+      padding: 14px 40px;
+      background: linear-gradient(135deg, #cb6b6b, #a94444);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.0rem;
+      text-decoration: none;
+      box-shadow: 0 10px 30px -8px rgba(160, 60, 60, 0.4);
+      transition: all 0.3s ease;
+      letter-spacing: 0.6px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .premium-hero .btn-premium::after {
+      content: '✨';
+      margin-left: 8px;
+    }
+    .premium-hero .btn-premium:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 16px 35px -8px #a94444b3;
+      background: linear-gradient(135deg, #d67a7a, #a94444);
+    }
+    .premium-hero .btn-premium:active {
+      transform: scale(0.97);
+    }
+    .premium-hero .signature-line {
+      margin-top: 14px;
+      font-size: 0.75rem;
+      opacity: 0.5;
+      letter-spacing: 0.5px;
+      font-weight: 300;
+      color: #5a3a38;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.1rem;
+    }
+    .premium-hero .decorative-line {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #dba0a0, transparent);
+      margin: 8px auto;
+      border-radius: 6px;
+    }
+    
     .button {
       display: inline-block;
       padding: 12px 32px;
@@ -850,6 +975,14 @@
       .reply-btn { padding: 10px 24px; font-size: 0.85rem; }
       .reply-btn::before { font-size: 0.9rem; }
       
+      /* Page 1 - Premium Mobile */
+      .premium-hero .hero-image { height: 200px; }
+      .premium-hero h1 { font-size: 1.6rem; }
+      .premium-hero .subtitle { font-size: 0.85rem; }
+      .premium-hero .countdown-wrapper .countdown { font-size: 1.3rem; }
+      .premium-hero .btn-premium { padding: 12px 28px; font-size: 0.85rem; }
+      .premium-hero .hero-content { padding: 16px 14px 20px; }
+      
       /* Page 2 - Mobile adjustments */
       .gift-wrapper { width: 260px; height: 260px; margin: 6px auto; }
       .gift-box { width: 190px; height: 165px; }
@@ -908,25 +1041,30 @@
     <span>🎵</span> Music <span>❤️</span>
   </div>
 
-  <!-- ====== PAGE 1: HERO with COUNTDOWN (CENTERED) ====== -->
+  <!-- ====== PAGE 1: PREMIUM HERO with pic12.jpg ====== -->
   <div class="page active" id="page1">
-    <div class="hero glass">
-      <h1>🎂 Happy 25th Birthday<br>My Beautiful Wife Sneha ❤️</h1>
-      <p>
-        You are my happiness, my peace, my best friend,<br>
-        and God's greatest blessing in my life.
-      </p>
-      
-      <div class="hero-countdown">
-        <div id="countdown-hero" class="countdown"></div>
+    <div class="premium-hero glass">
+      <img src="pic12.jpg" alt="Sneha ❤️" class="hero-image">
+      <div class="hero-content">
+        <h1>🎂 Happy 25th Birthday<br>My Beautiful Wife Sneha ❤️</h1>
+        <div class="decorative-line"></div>
+        <p class="subtitle">
+          You are my happiness, my peace, my best friend,<br>
+          and God's greatest blessing in my life. <span>✨</span>
+        </p>
+        
+        <div class="countdown-wrapper">
+          <div id="countdown-hero" class="countdown"></div>
+          <span class="countdown-label">Until Your Special Day</span>
+        </div>
+        
+        <button class="btn-premium" onclick="goToPage(2)">Open My Surprise</button>
+        <div class="signature-line">— forever yours, Pridesh ❤️ —</div>
       </div>
-      
-      <button class="button" onclick="goToPage(2)" style="margin-top:10px;">Open My Surprise ❤️</button>
-      <div style="margin-top:10px; font-size:0.7rem; opacity:0.4; letter-spacing:0.3px;">— forever yours, Pridesh —</div>
     </div>
   </div>
 
-  <!-- ====== PAGE 2: GIFT BOX (TOP ALIGNED) ====== -->
+  <!-- ====== PAGE 2: GIFT BOX ====== -->
   <div class="page" id="page2">
     <div class="section">
       <h2>🎁 A Special Gift For You</h2>
@@ -979,7 +1117,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 4: LETTER (NO CHANGE) ====== -->
+  <!-- ====== PAGE 4: LETTER ====== -->
   <div class="page" id="page4">
     <div class="section" id="letter">
       <h2>💌 My Letter To You</h2>
@@ -1010,7 +1148,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 5: REASONS - SINGLE COLUMN (UPDATED) ====== -->
+  <!-- ====== PAGE 5: REASONS - SINGLE COLUMN ====== -->
   <div class="page" id="page5">
     <div class="section">
       <h2>🎁 10 Reasons I Love You</h2>
@@ -1037,7 +1175,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 6: FINAL PROMISE (NO CHANGE) ====== -->
+  <!-- ====== PAGE 6: FINAL PROMISE ====== -->
   <div class="page" id="page6">
     <div class="section" style="background: rgba(240, 215, 205, 0.4);">
       <h2>💍 One Last Surprise</h2>
@@ -1073,7 +1211,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 7: VIDEO PAGE (NO CHANGE) ====== -->
+  <!-- ====== PAGE 7: VIDEO PAGE ====== -->
   <div class="page" id="page7">
     <div class="section" style="background: rgba(240, 215, 205, 0.3);">
       <h2>🎵 Happy Birthday Sneha! 🎵</h2>
