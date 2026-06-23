@@ -361,6 +361,12 @@
     .letter-container .emoji-big {
       font-size: 1.2rem;
     }
+    /* Highlight style for bold words */
+    .letter-container .highlight-word {
+      font-weight: 700;
+      color: #a94444;
+      font-size: 1.0rem;
+    }
     
     @keyframes typeIn {
       0% { opacity: 0; transform: translateY(10px); }
@@ -487,6 +493,15 @@
     @keyframes floatRose {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-6px) rotate(5deg); }
+    }
+    /* Smaller Forever & Always */
+    .promise-container .forever-small {
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      opacity: 0.85;
+    }
+    .promise-container .forever-small .promise-heart {
+      font-size: 1.2rem;
     }
     
     .button {
@@ -1088,6 +1103,7 @@
       
       .letter-container { font-size: 0.85rem; padding: 14px 14px; }
       .letter-container .signature { font-size: 1.3rem; }
+      .letter-container .highlight-word { font-size: 0.9rem; }
       .reason-item { font-size: 0.75rem; padding: 10px 6px; border-radius: 22px; }
       .footer { font-size: 0.75rem; padding: 12px 10px; }
       .gift-quote { font-size: 0.85rem; padding: 8px 12px; }
@@ -1100,6 +1116,7 @@
       .download-btn { font-size: 0.65rem; padding: 6px 16px; }
       .promise-container .promise-title { font-size: 1.0rem; }
       .promise-container .promise-text { font-size: 0.75rem; }
+      .promise-container .forever-small { font-size: 0.65rem; }
       .scroll-hint { font-size: 0.55rem; padding: 4px 12px; }
     }
   </style>
@@ -1211,7 +1228,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 4: SINGLE LINE LETTER with SLOW TYPE ====== -->
+  <!-- ====== PAGE 4: NEW LETTER with HIGHLIGHTED WORDS ====== -->
   <div class="page" id="page4">
     <div class="section">
       <h2>💌 My Letter To You</h2>
@@ -1247,7 +1264,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 6: PREMIUM PROMISE with GLOW & PULSE ====== -->
+  <!-- ====== PAGE 6: PREMIUM PROMISE with SMALLER FOREVER & ALWAYS ====== -->
   <div class="page" id="page6">
     <div class="section" style="background: rgba(240, 215, 205, 0.4);">
       <h2>💍 One Last Surprise</h2>
@@ -1275,7 +1292,9 @@
           and <span class="highlight-text">stand beside</span> you<br><br>
           Until my last heartbeat...<br>
           <span class="highlight-text" style="font-size:0.95rem;">you will always be my first choice.</span><br><br>
-          <span class="promise-heart" style="font-size:1.8rem;">❤️ Forever & Always ❤️</span>
+          <span class="forever-small">
+            <span class="promise-heart" style="font-size:1.2rem;">❤️</span> Forever & Always <span class="promise-heart" style="font-size:1.2rem;">❤️</span>
+          </span>
         </div>
       </div>
       
@@ -1351,7 +1370,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
         if (pageNum === 2) {
-          // Change hint text when gift box is opened
           document.getElementById('giftHint').textContent = '🎉 Surprise gift box is now open! ❤️';
           document.getElementById('giftHint').style.opacity = '0.8';
           document.getElementById('giftHint').style.color = '#a94444';
@@ -1371,12 +1389,10 @@
           }, 300);
         }
         
-        // Re-trigger letter animation when page 4 becomes active
         if (pageNum === 4) {
           startLetterAnimation();
         }
         
-        // Re-trigger reason animation when page 5 becomes active
         if (pageNum === 5) {
           const items = document.querySelectorAll('.reason-item');
           items.forEach((item, index) => {
@@ -1387,7 +1403,6 @@
           });
         }
         
-        // Hide scroll hint on page 3 when leaving
         if (pageNum !== 3) {
           const hint = document.getElementById('scrollHint');
           if (hint) hint.classList.add('hidden');
@@ -1395,18 +1410,18 @@
       }
     }
 
-    // ========== LETTER CONTENT (SINGLE LINES, centered) ==========
+    // ========== NEW LETTER CONTENT with HIGHLIGHTED WORDS ==========
     const letterLines = [
       { text: "💖 My Dearest Sneha ❤️", className: "line-bold line-center" },
       { text: "", className: "" },
-      { text: "💫 You accepted me as I am", className: "line-center" },
+      { text: "🌹 You accepted me with all my strengths and weaknesses", className: "line-center" },
       { text: "and loved me unconditionally.", className: "line-center" },
-      { text: "❤️ You sacrificed so much", className: "line-center" },
-      { text: "for our happiness and future.", className: "line-center" },
-      { text: "✨ Your love and support", className: "line-center" },
-      { text: "make me stronger every day.", className: "line-center" },
-      { text: "🙏 I thank God", className: "line-center" },
-      { text: "for blessing me with you.", className: "line-center" },
+      { text: "", className: "" },
+      { text: "❤️ You sacrificed many dreams, comforts, and precious moments", className: "line-center" },
+      { text: "to build a happy future for us together.", className: "line-center" },
+      { text: "", className: "" },
+      { text: "✨ Your love, patience, and support", className: "line-center" },
+      { text: "make me a better person every day.", className: "line-center" },
       { text: "", className: "" },
       { text: "💝 With every heartbeat, I promise you,", className: "line-italic line-center" },
       { text: "My love for you will grow stronger every day.", className: "line-italic line-center" },
@@ -1416,6 +1431,18 @@
       { text: "💖 Forever Yours,", className: "line-center" },
       { text: "Pridesh ❤️", className: "signature" }
     ];
+
+    // Words to highlight in red/bold
+    const highlightWords = ['You accepted', 'You sacrificed', 'Your love'];
+
+    function processLineWithHighlights(text) {
+      let processed = text;
+      highlightWords.forEach(word => {
+        const regex = new RegExp(word, 'g');
+        processed = processed.replace(regex, `<span class="highlight-word">${word}</span>`);
+      });
+      return processed;
+    }
 
     let letterAnimationRunning = false;
 
@@ -1442,7 +1469,11 @@
         if (lineData.className) {
           span.classList.add(...lineData.className.split(' '));
         }
-        span.textContent = lineData.text || '\u00A0';
+        
+        // Process text with highlights
+        const rawText = lineData.text || '\u00A0';
+        span.innerHTML = processLineWithHighlights(rawText);
+        
         container.appendChild(span);
         
         requestAnimationFrame(() => {
@@ -1496,20 +1527,13 @@
           const scrollPercent = maxScroll > 0 ? scrollTop / maxScroll : 0;
           const opacity = 1 - (scrollPercent * 0.6);
           nextBtn.style.opacity = Math.max(0.4, opacity);
-          
-          // Keep hint visible until next is pressed
-          if (scrollTop > 10) {
-            // hint stays visible, we don't hide it
-          }
         });
       }
       
-      // Show hint on page 3
       if (document.getElementById('page3').classList.contains('active')) {
         hint.classList.remove('hidden');
       }
       
-      // Start letter animation if page 4 is active on load
       if (document.getElementById('page4').classList.contains('active')) {
         startLetterAnimation();
       }
