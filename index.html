@@ -169,7 +169,6 @@
       background: linear-gradient(180deg, rgba(255, 245, 240, 0.1) 0%, rgba(255, 245, 240, 0.7) 100%);
       z-index: 1;
     }
-    /* Removed the ::before pseudo-element that was adding the sparkle icon */
     
     .premium-hero h1 {
       font-family: 'Playfair Display', serif;
@@ -312,7 +311,7 @@
       font-size: 1.0rem;
     }
     
-    /* ===== PAGE 4 - SMALL CENTERED LETTER with SLOW TYPE ===== */
+    /* ===== PAGE 4 - SINGLE LINE LETTER with SLOW TYPE ===== */
     .letter-container {
       font-family: 'Patrick Hand', cursive;
       font-size: 0.95rem;
@@ -1024,9 +1023,9 @@
       100% { transform: scale(1.5) rotate(720deg) translateY(-160px); opacity: 0; }
     }
 
-    /* Page 3 - Scroll hint popup */
+    /* Page 3 - Scroll hint stays until next button */
     .scroll-hint {
-      display: none;
+      display: inline-block;
       padding: 6px 14px;
       background: rgba(169, 68, 68, 0.12);
       border-radius: 30px;
@@ -1035,9 +1034,12 @@
       margin: 4px auto 0;
       border: 1px solid rgba(169, 68, 68, 0.1);
       animation: hintPulse 1.5s ease-in-out infinite;
+      opacity: 1;
+      transition: opacity 0.5s ease;
     }
-    .scroll-hint.show {
-      display: inline-block;
+    .scroll-hint.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
     @keyframes hintPulse {
       0%, 100% { opacity: 0.5; transform: scale(0.98); }
@@ -1209,7 +1211,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 4: SMALL CENTERED LETTER with SLOW TYPE ====== -->
+  <!-- ====== PAGE 4: SINGLE LINE LETTER with SLOW TYPE ====== -->
   <div class="page" id="page4">
     <div class="section">
       <h2>💌 My Letter To You</h2>
@@ -1385,31 +1387,26 @@
           });
         }
         
-        // Show scroll hint on page 3
-        if (pageNum === 3) {
+        // Hide scroll hint on page 3 when leaving
+        if (pageNum !== 3) {
           const hint = document.getElementById('scrollHint');
-          hint.classList.add('show');
-          setTimeout(() => {
-            hint.classList.remove('show');
-          }, 4000);
+          if (hint) hint.classList.add('hidden');
         }
       }
     }
 
-    // ========== LETTER CONTENT (single lines, centered) ==========
+    // ========== LETTER CONTENT (SINGLE LINES, centered) ==========
     const letterLines = [
       { text: "💖 My Dearest Sneha ❤️", className: "line-bold line-center" },
       { text: "", className: "" },
       { text: "💫 You accepted me as I am", className: "line-center" },
       { text: "and loved me unconditionally.", className: "line-center" },
-      { text: "🌹 You sacrificed so much", className: "line-center" },
+      { text: "❤️ You sacrificed so much", className: "line-center" },
       { text: "for our happiness and future.", className: "line-center" },
       { text: "✨ Your love and support", className: "line-center" },
       { text: "make me stronger every day.", className: "line-center" },
       { text: "🙏 I thank God", className: "line-center" },
       { text: "for blessing me with you.", className: "line-center" },
-      { text: "❤️ You are my greatest blessing", className: "line-center" },
-      { text: "and forever love.", className: "line-center" },
       { text: "", className: "" },
       { text: "💝 With every heartbeat, I promise you,", className: "line-italic line-center" },
       { text: "My love for you will grow stronger every day.", className: "line-italic line-center" },
@@ -1486,7 +1483,7 @@
       }
     }
 
-    // ========== PAGE 3 - SCROLL HINT & OPACITY ==========
+    // ========== PAGE 3 - SCROLL HINT stays until next ==========
     document.addEventListener('DOMContentLoaded', function() {
       const gallery = document.getElementById('galleryContainer');
       const nextBtn = document.getElementById('galleryNextBtn');
@@ -1500,21 +1497,16 @@
           const opacity = 1 - (scrollPercent * 0.6);
           nextBtn.style.opacity = Math.max(0.4, opacity);
           
-          // Show hint when user starts scrolling
+          // Keep hint visible until next is pressed
           if (scrollTop > 10) {
-            hint.classList.remove('show');
+            // hint stays visible, we don't hide it
           }
         });
       }
       
-      // Show hint on page 3 load
+      // Show hint on page 3
       if (document.getElementById('page3').classList.contains('active')) {
-        setTimeout(() => {
-          hint.classList.add('show');
-          setTimeout(() => {
-            hint.classList.remove('show');
-          }, 4000);
-        }, 500);
+        hint.classList.remove('hidden');
       }
       
       // Start letter animation if page 4 is active on load
