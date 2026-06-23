@@ -6,7 +6,7 @@
   <title>✨ Happy 25th Birthday Sneha ❤️</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -92,31 +92,8 @@
       position: relative;
       z-index: 1;
     }
-    .hero {
-      padding: 24px 16px 20px;
-      background: rgba(255, 235, 225, 0.4);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 28px;
-      border: 1px solid rgba(255, 220, 210, 0.5);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 15px 35px -15px rgba(120, 50, 40, 0.12);
-      text-align: center;
-      width: 100%;
-    }
-    .hero::after {
-      content: "✨";
-      font-size: 70px;
-      position: absolute;
-      bottom: -15px;
-      right: -8px;
-      opacity: 0.06;
-      transform: rotate(-8deg);
-      pointer-events: none;
-    }
     
-    /* ===== PAGE 1 - PREMIUM HERO with BIG 1:1 Image ===== */
+    /* ===== PAGE 1 - PREMIUM HERO (refined) ===== */
     .premium-hero {
       position: relative;
       padding: 0;
@@ -139,9 +116,9 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 20% 20%, rgba(255,215,0,.15), transparent 25%),
-        radial-gradient(circle at 80% 30%, rgba(255,255,255,.15), transparent 20%),
-        radial-gradient(circle at 50% 80%, rgba(255,215,0,.12), transparent 25%);
+        radial-gradient(circle at 20% 20%, rgba(255,215,0,.08), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,.10), transparent 20%),
+        radial-gradient(circle at 50% 80%, rgba(255,215,0,.06), transparent 25%);
       z-index: 0;
     }
     .premium-hero .hero-image-wrapper {
@@ -150,19 +127,17 @@
       margin: 20px auto 10px;
       border-radius: 50%;
       overflow: hidden;
-      border: 4px solid transparent;
-      background:
-        linear-gradient(#fff,#fff) padding-box,
-        linear-gradient(135deg,#ffd700,#fff5c3,#d4af37) border-box;
+      border: 4px solid rgba(255,255,255,0.6);
+      background: #fff;
       box-shadow:
-        0 0 30px rgba(255,215,0,.35),
-        0 8px 40px rgba(160,60,60,.25);
+        0 0 30px rgba(160,60,60,.15),
+        0 8px 40px rgba(160,60,60,.15);
       animation: imageGlow 3s ease-in-out infinite;
       position: relative;
     }
     @keyframes imageGlow {
-      0%, 100% { box-shadow: 0 0 30px rgba(255,215,0,.35), 0 8px 40px rgba(160,60,60,.25); }
-      50% { box-shadow: 0 0 60px rgba(255,215,0,.55), 0 8px 60px rgba(160,60,60,.35); }
+      0%, 100% { box-shadow: 0 0 30px rgba(160,60,60,.15), 0 8px 40px rgba(160,60,60,.15); }
+      50% { box-shadow: 0 0 50px rgba(160,60,60,.25), 0 8px 50px rgba(160,60,60,.20); }
     }
     .premium-hero .hero-image-wrapper::after {
       content: '❤️';
@@ -205,33 +180,27 @@
       backdrop-filter: blur(4px);
       box-shadow: 0 2px 15px rgba(160, 60, 60, 0.08);
     }
+    
+    /* Title - smaller, centered, no gold/yellow */
     .premium-hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      background: linear-gradient(
-        135deg,
-        #fff5c3 0%,
-        #ffd700 25%,
-        #fff8dc 50%,
-        #d4af37 75%,
-        #fff5c3 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 25px rgba(255,215,0,0.25);
-      margin-bottom: 4px;
-      line-height: 1.2;
+      color: #4a2a28;
       text-align: center;
+      margin-bottom: 4px;
+      line-height: 1.3;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 4px rgba(255,255,255,0.3);
     }
     .premium-hero .subtitle {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 300;
       color: #402b29;
       max-width: 380px;
       margin: 0 auto 8px;
-      line-height: 1.6;
-      letter-spacing: 0.3px;
+      line-height: 1.5;
+      letter-spacing: 0.2px;
       text-align: center;
       font-style: italic;
     }
@@ -240,41 +209,50 @@
       color: #a94444;
       font-style: normal;
     }
+    .luxury-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 30px;
+      background: rgba(169, 68, 68, 0.10);
+      color: #a94444;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      border: 1px solid rgba(169, 68, 68, 0.15);
+    }
+    .hero-quote {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.1rem;
+      color: #a94444;
+      margin: 8px 0 10px;
+      font-weight: 400;
+    }
+    .premium-hero .decorative-line {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #dba0a0, transparent);
+      margin: 4px auto 8px;
+      border-radius: 6px;
+    }
     
-    /* Premium Countdown - Glowing Design */
     .premium-hero .countdown-wrapper {
       background: linear-gradient(135deg, rgba(255, 235, 225, 0.6), rgba(255, 215, 210, 0.3));
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-radius: 60px;
-      padding: 14px 24px;
+      padding: 10px 20px;
       display: inline-block;
-      border: 2px solid rgba(169, 68, 68, 0.15);
-      box-shadow: 0 0 30px rgba(169, 68, 68, 0.08), inset 0 0 30px rgba(169, 68, 68, 0.03);
-      margin-bottom: 14px;
+      border: 2px solid rgba(169, 68, 68, 0.12);
+      box-shadow: 0 0 20px rgba(169, 68, 68, 0.05), inset 0 0 20px rgba(169, 68, 68, 0.02);
+      margin-bottom: 12px;
       position: relative;
     }
-    .premium-hero .countdown-wrapper::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      border-radius: 60px;
-      background: linear-gradient(135deg, rgba(169, 68, 68, 0.2), transparent, rgba(169, 68, 68, 0.2));
-      z-index: -1;
-      animation: glowPulse 2s ease-in-out infinite;
-    }
-    @keyframes glowPulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
     .premium-hero .countdown-wrapper .countdown {
-      font-size: 2.3rem;
-      font-weight: 800;
+      font-size: 1.8rem;
+      font-weight: 700;
       color: #a94444;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       background: transparent;
       padding: 0;
       border: none;
@@ -282,22 +260,22 @@
       backdrop-filter: none;
       font-family: 'Playfair Display', serif;
       display: inline-block;
-      text-shadow: 0 0 30px rgba(169, 68, 68, 0.15);
+      text-shadow: 0 0 20px rgba(169, 68, 68, 0.08);
     }
     .premium-hero .countdown-wrapper .countdown-label {
       display: block;
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       text-transform: uppercase;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       color: #8a5a5a;
       font-weight: 600;
-      margin-top: 2px;
-      opacity: 0.7;
+      margin-top: 0px;
+      opacity: 0.6;
     }
     .premium-hero .countdown-wrapper .countdown-icon {
       display: inline-block;
       animation: sparkle 1.5s ease-in-out infinite;
-      margin-right: 6px;
+      margin-right: 4px;
     }
     @keyframes sparkle {
       0%, 100% { opacity: 0.6; transform: scale(0.9); }
@@ -306,24 +284,17 @@
     
     .premium-hero .btn-premium {
       display: inline-block;
-      padding: 15px 44px;
-      background: linear-gradient(
-        135deg,
-        #d4af37,
-        #ffd700,
-        #b8860b
-      );
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #cb6b6b, #a94444);
       color: #fff;
       border: none;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 1.05rem;
+      font-size: 1.0rem;
       text-decoration: none;
-      box-shadow:
-        0 0 20px rgba(255,215,0,.25),
-        0 15px 40px rgba(169,68,68,.35);
+      box-shadow: 0 10px 30px -8px rgba(160, 60, 60, 0.35);
       transition: all 0.3s ease;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       text-align: center;
       cursor: pointer;
       position: relative;
@@ -334,57 +305,92 @@
       margin-left: 8px;
     }
     .premium-hero .btn-premium:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow:
-        0 0 35px rgba(255,215,0,.45),
-        0 20px 50px rgba(169,68,68,.45);
-      background: linear-gradient(
-        135deg,
-        #e4c04a,
-        #ffd700,
-        #c9971a
-      );
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 35px -8px #a94444b3;
+      background: linear-gradient(135deg, #d67a7a, #a94444);
     }
     .premium-hero .btn-premium:active {
       transform: scale(0.97);
     }
     .premium-hero .signature-line {
-      margin-top: 12px;
-      font-size: 0.75rem;
+      margin-top: 10px;
+      font-size: 0.7rem;
       opacity: 0.5;
       letter-spacing: 0.5px;
       font-weight: 300;
       color: #5a3a38;
       font-family: 'Dancing Script', cursive;
-      font-size: 1.15rem;
-    }
-    .premium-hero .decorative-line {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #dba0a0, transparent);
-      margin: 6px auto;
-      border-radius: 6px;
-    }
-
-    .luxury-badge {
-      display: inline-block;
-      padding: 8px 18px;
-      border-radius: 30px;
-      background: rgba(255,215,0,.15);
-      color: #d4af37;
-      font-size: .7rem;
-      letter-spacing: 3px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      border: 1px solid rgba(255,215,0,.25);
+      font-size: 1.0rem;
     }
     
-    .hero-quote {
+    /* ===== PAGE 4 - HANDWRITTEN LETTER ===== */
+    .letter-handwritten {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #3a2220;
+      text-align: left;
+      padding: 16px 18px;
+      background: rgba(255, 245, 240, 0.35);
+      border-radius: 24px;
+      border: 2px solid rgba(200, 160, 150, 0.15);
+      max-width: 440px;
+      margin: 6px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      letter-spacing: 0.3px;
+    }
+    .letter-handwritten .hand-line {
+      display: block;
+      padding: 2px 0;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: typeIn 0.5s ease forwards;
+    }
+    .letter-handwritten .hand-line:nth-child(1) { animation-delay: 0.05s; }
+    .letter-handwritten .hand-line:nth-child(2) { animation-delay: 0.10s; }
+    .letter-handwritten .hand-line:nth-child(3) { animation-delay: 0.15s; }
+    .letter-handwritten .hand-line:nth-child(4) { animation-delay: 0.20s; }
+    .letter-handwritten .hand-line:nth-child(5) { animation-delay: 0.25s; }
+    .letter-handwritten .hand-line:nth-child(6) { animation-delay: 0.30s; }
+    .letter-handwritten .hand-line:nth-child(7) { animation-delay: 0.35s; }
+    .letter-handwritten .hand-line:nth-child(8) { animation-delay: 0.40s; }
+    .letter-handwritten .hand-line:nth-child(9) { animation-delay: 0.45s; }
+    .letter-handwritten .hand-line:nth-child(10) { animation-delay: 0.50s; }
+    .letter-handwritten .hand-line:nth-child(11) { animation-delay: 0.55s; }
+    .letter-handwritten .hand-line:nth-child(12) { animation-delay: 0.60s; }
+    .letter-handwritten .hand-line:nth-child(13) { animation-delay: 0.65s; }
+    .letter-handwritten .hand-line:nth-child(14) { animation-delay: 0.70s; }
+    .letter-handwritten .hand-line:nth-child(15) { animation-delay: 0.75s; }
+    .letter-handwritten .hand-line:nth-child(16) { animation-delay: 0.80s; }
+    .letter-handwritten .hand-line:nth-child(17) { animation-delay: 0.85s; }
+    .letter-handwritten .hand-line:nth-child(18) { animation-delay: 0.90s; }
+    .letter-handwritten .hand-line:nth-child(19) { animation-delay: 0.95s; }
+    .letter-handwritten .hand-line:nth-child(20) { animation-delay: 1.00s; }
+    .letter-handwritten .hand-line:nth-child(21) { animation-delay: 1.05s; }
+    .letter-handwritten .hand-line:nth-child(22) { animation-delay: 1.10s; }
+    .letter-handwritten .hand-line:nth-child(23) { animation-delay: 1.15s; }
+    .letter-handwritten .hand-line:nth-child(24) { animation-delay: 1.20s; }
+    .letter-handwritten .hand-line:nth-child(25) { animation-delay: 1.25s; }
+    .letter-handwritten .hand-line:nth-child(26) { animation-delay: 1.30s; }
+    .letter-handwritten .hand-line:nth-child(27) { animation-delay: 1.35s; }
+    .letter-handwritten .hand-line:nth-child(28) { animation-delay: 1.40s; }
+    .letter-handwritten .hand-line:nth-child(29) { animation-delay: 1.45s; }
+    .letter-handwritten .hand-line:nth-child(30) { animation-delay: 1.50s; }
+    
+    @keyframes typeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .letter-handwritten .hand-signature {
       font-family: 'Dancing Script', cursive;
-      font-size: 1.3rem;
+      font-size: 1.6rem;
       color: #a94444;
-      margin: 12px 0;
-      font-weight: 400;
+      margin-top: 8px;
+      text-align: right;
+    }
+    .letter-handwritten .hand-heart {
+      color: #d44a4a;
+      font-size: 1.3rem;
     }
     
     .button {
@@ -576,44 +582,6 @@
       opacity: 0.3;
     }
     
-    .letter-content {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      font-weight: 400;
-      color: #352221;
-      background: rgba(255, 245, 240, 0.25);
-      padding: 12px 14px;
-      border-radius: 18px;
-      border-left: 3px solid #dba0a0;
-      border-right: 3px solid #dba0a0;
-      text-align: center;
-      max-width: 440px;
-      margin: 6px auto;
-      font-family: 'Inter', sans-serif;
-    }
-    .letter-content .short-note {
-      font-size: 0.82rem;
-      line-height: 1.6;
-      padding: 3px 0;
-      border-bottom: 1px dashed rgba(180, 120, 110, 0.08);
-    }
-    .letter-content .short-note:last-child {
-      border-bottom: none;
-    }
-    .letter-content .note-emoji {
-      font-size: 1.0rem;
-      margin-right: 4px;
-    }
-    .letter-content strong {
-      font-weight: 600;
-      color: #9e4040;
-    }
-    .letter-content .signature {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.4rem;
-      color: #a94444;
-      margin-top: 4px;
-    }
     .reason-grid {
       display: flex;
       flex-direction: column;
@@ -728,17 +696,7 @@
       0%, 100% { opacity: 0.4; transform: scale(0.9); }
       50% { opacity: 1; transform: scale(1.1); }
     }
-    .poem {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: #4d2e2b;
-      font-style: italic;
-      padding: 4px 0;
-    }
-    .poem span {
-      display: block;
-    }
+    
     .floating-roses {
       font-size: 1.4rem;
       animation: floatRose 8s ease-in-out infinite;
@@ -1013,36 +971,25 @@
       100% { transform: scale(1.5) rotate(720deg) translateY(-160px); opacity: 0; }
     }
 
-    .hero-countdown {
-      margin-top: 8px;
-    }
-    .hero-countdown .countdown {
-      font-size: 1.0rem;
-      padding: 5px 12px;
-    }
-
     @media (max-width: 480px) {
       .glass { padding: 14px 10px; border-radius: 20px; }
       .section { padding: 12px 8px; border-radius: 18px; }
-      .hero { padding: 16px 10px 14px; border-radius: 20px; }
-      .hero h1 { font-size: 1.5rem; }
-      .hero p { font-size: 0.8rem; max-width: 300px; }
       h2 { font-size: 1.3rem; }
       .countdown { font-size: 0.85rem; padding: 4px 10px; }
       .button { padding: 10px 24px; font-size: 0.8rem; }
       .button-small { padding: 8px 18px; font-size: 0.7rem; }
       .reply-btn { padding: 10px 24px; font-size: 0.85rem; }
-      .reply-btn::before { font-size: 0.9rem; }
       
       .premium-hero .hero-image-wrapper { width: 220px; height: 220px; margin: 16px auto 8px; }
       .premium-hero .hero-image-wrapper::after { font-size: 24px; bottom: 6px; right: 6px; }
-      .premium-hero h1 { font-size: 1.5rem; }
-      .premium-hero .subtitle { font-size: 0.8rem; }
-      .premium-hero .countdown-wrapper .countdown { font-size: 1.6rem; }
-      .premium-hero .countdown-wrapper { padding: 10px 16px; }
+      .premium-hero h1 { font-size: 1.3rem; }
+      .premium-hero .subtitle { font-size: 0.75rem; }
+      .premium-hero .countdown-wrapper .countdown { font-size: 1.4rem; }
+      .premium-hero .countdown-wrapper { padding: 8px 14px; }
       .premium-hero .btn-premium { padding: 12px 28px; font-size: 0.85rem; }
-      .premium-hero .hero-content { padding: 12px 14px 18px; }
-      .hero-quote { font-size: 1rem; }
+      .premium-hero .hero-content { padding: 10px 12px 16px; }
+      .hero-quote { font-size: 0.95rem; }
+      .luxury-badge { font-size: 0.5rem; padding: 4px 12px; }
       
       .gift-wrapper { width: 260px; height: 260px; margin: 6px auto; }
       .gift-box { width: 190px; height: 165px; }
@@ -1064,8 +1011,7 @@
       }
       .gallery-next-btn { font-size: 0.7rem; padding: 8px 20px; }
       
-      .letter-content { font-size: 0.78rem; padding: 8px 10px; }
-      .letter-content .short-note { font-size: 0.72rem; }
+      .letter-handwritten { font-size: 1.0rem; padding: 14px 14px; }
       .reason-grid { gap: 6px; max-width: 320px; }
       #page5 .reason-item { font-size: 0.75rem; padding: 10px 6px; border-radius: 22px; }
       .footer { font-size: 0.75rem; padding: 12px 10px; }
@@ -1074,15 +1020,13 @@
       .video-container .play-btn-overlay { width: 45px; height: 45px; font-size: 1.5rem; }
       .video-container { max-width: 100%; }
       .music-indicator { bottom: 6px; right: 6px; padding: 3px 8px; font-size: 0.5rem; }
-      .hero-countdown .countdown { font-size: 0.8rem; padding: 3px 10px; }
-      .poem { font-size: 0.78rem; }
-      .letter-content .signature { font-size: 1.2rem; }
       #page6 .emotional-promise { font-size: 0.65rem; padding: 8px 10px; }
       #page6 .emotional-promise .highlight-text { font-size: 0.8rem !important; }
       #page7 h2 { font-size: 1.1rem; }
       #page7 .video-container { max-width: 300px; }
       .footer { font-size: 0.7rem; padding: 10px 8px; }
       .download-btn { font-size: 0.65rem; padding: 6px 16px; }
+      .letter-handwritten .hand-signature { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -1109,7 +1053,7 @@
     <span>🎵</span> Music <span>❤️</span>
   </div>
 
-  <!-- ====== PAGE 1: PREMIUM HERO ====== -->
+  <!-- ====== PAGE 1: PREMIUM HERO (refined) ====== -->
   <div class="page active" id="page1">
     <div class="premium-hero">
       <div class="hero-image-wrapper">
@@ -1117,7 +1061,7 @@
       </div>
       <div class="hero-content">
         <div class="luxury-badge">✨ QUEEN OF MY HEART ✨</div>
-        <h1>🎂 Happy 25th Birthday<br>My Beautiful Wife Sneha ❤️</h1>
+        <h1>Happy 25th Birthday<br>My Beautiful Wife Sneha</h1>
         <div class="decorative-line"></div>
         <p class="subtitle">
           You are my happiness, my peace,<br>my best friend, and God's greatest blessing.
@@ -1191,34 +1135,31 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 4: LETTER ====== -->
+  <!-- ====== PAGE 4: HANDWRITTEN LETTER (with type-in effect) ====== -->
   <div class="page" id="page4">
-    <div class="section" id="letter">
+    <div class="section">
       <h2>💌 My Letter To You</h2>
       <div class="divider"></div>
-      <div class="letter-content">
-        <p><strong>My Dearest Sneha ❤️</strong></p>
-        
-        <div class="short-note"><span class="note-emoji">💫</span> You walked into my life and made it beautiful.</div>
-        <div class="short-note"><span class="note-emoji">🌅</span> Every morning with you is a blessing.</div>
-        <div class="short-note"><span class="note-emoji">💕</span> Your smile heals my soul.</div>
-        <div class="short-note"><span class="note-emoji">🌟</span> You are my strength and my peace.</div>
-        <div class="short-note"><span class="note-emoji">🤝</span> Thank you for loving me.</div>
-        <div class="short-note"><span class="note-emoji">🔥</span> I will always choose you.</div>
-        <div class="short-note"><span class="note-emoji">💖</span> You are my miracle.</div>
-        
-        <div class="poem" style="margin-top:6px;">
-          <span>🌹 With every heartbeat, I promise you,</span>
-          <span>My love will remain forever true.</span>
-          <span>Through all the years, through joy and pain,</span>
-          <span>I'll love you more with each new day again.</span>
-          <span>🌹</span>
-        </div>
-        
-        <p style="font-size:1.0rem; font-weight:600; color:#a94444; margin-top:6px;">Happy 25th Birthday My Love ❤️</p>
-        <p style="margin-top:8px;">Forever Yours,<br><span class="signature">Pridesh ❤️</span></p>
+      
+      <div class="letter-handwritten" id="letterContainer">
+        <span class="hand-line"><strong>My Dearest Sneha ❤️</strong></span>
+        <span class="hand-line">💫 You walked into my life and made it beautiful.</span>
+        <span class="hand-line">🌅 Every morning with you is a blessing.</span>
+        <span class="hand-line">💕 Your smile heals my soul.</span>
+        <span class="hand-line">🌟 You are my strength and my peace.</span>
+        <span class="hand-line">🤝 Thank you for loving me.</span>
+        <span class="hand-line">🔥 I will always choose you.</span>
+        <span class="hand-line">💖 You are my miracle.</span>
+        <span class="hand-line">🌹 With every heartbeat, I promise you,</span>
+        <span class="hand-line">My love will remain forever true.</span>
+        <span class="hand-line">Through all the years, through joy and pain,</span>
+        <span class="hand-line">I'll love you more with each new day again.</span>
+        <span class="hand-line">🌹</span>
+        <span class="hand-line" style="margin-top:8px; font-weight:600; font-size:1.2rem;">Happy 25th Birthday My Love ❤️</span>
+        <span class="hand-line hand-signature">Forever Yours,<br>Pridesh ❤️</span>
       </div>
-      <button class="button button-small" onclick="goToPage(5)" style="margin-top:6px;">Next →</button>
+      
+      <button class="button button-small" onclick="goToPage(5)" style="margin-top:8px;">Next →</button>
     </div>
   </div>
 
@@ -1359,6 +1300,25 @@
               }
             }, 1200);
           }, 300);
+        }
+        
+        // Re-trigger letter animation when page 4 becomes active
+        if (pageNum === 4) {
+          const letter = document.getElementById('letterContainer');
+          if (letter) {
+            // Remove and re-add to restart animation
+            letter.style.animation = 'none';
+            letter.offsetHeight; // trigger reflow
+            letter.style.animation = '';
+            // Re-apply to children
+            const lines = letter.querySelectorAll('.hand-line');
+            lines.forEach((line, index) => {
+              line.style.animation = 'none';
+              line.offsetHeight;
+              line.style.animation = `typeIn 0.5s ease forwards`;
+              line.style.animationDelay = `${0.05 + index * 0.04}s`;
+            });
+          }
         }
       }
     }
