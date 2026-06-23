@@ -93,7 +93,7 @@
       z-index: 1;
     }
     
-    /* ===== PAGE 1 - PREMIUM HERO (refined) ===== */
+    /* ===== PAGE 1 - PREMIUM HERO with GOLD RING GLOW ===== */
     .premium-hero {
       position: relative;
       padding: 0;
@@ -127,17 +127,19 @@
       margin: 20px auto 10px;
       border-radius: 50%;
       overflow: hidden;
-      border: 4px solid rgba(255,255,255,0.6);
-      background: #fff;
+      border: 4px solid transparent;
+      background:
+        linear-gradient(#fff,#fff) padding-box,
+        linear-gradient(135deg,#ffd700,#fff5c3,#d4af37) border-box;
       box-shadow:
-        0 0 30px rgba(160,60,60,.15),
-        0 8px 40px rgba(160,60,60,.15);
+        0 0 30px rgba(255,215,0,.35),
+        0 8px 40px rgba(160,60,60,.25);
       animation: imageGlow 3s ease-in-out infinite;
       position: relative;
     }
     @keyframes imageGlow {
-      0%, 100% { box-shadow: 0 0 30px rgba(160,60,60,.15), 0 8px 40px rgba(160,60,60,.15); }
-      50% { box-shadow: 0 0 50px rgba(160,60,60,.25), 0 8px 50px rgba(160,60,60,.20); }
+      0%, 100% { box-shadow: 0 0 30px rgba(255,215,0,.35), 0 8px 40px rgba(160,60,60,.25); }
+      50% { box-shadow: 0 0 60px rgba(255,215,0,.55), 0 8px 60px rgba(160,60,60,.35); }
     }
     .premium-hero .hero-image-wrapper::after {
       content: '❤️';
@@ -181,7 +183,6 @@
       box-shadow: 0 2px 15px rgba(160, 60, 60, 0.08);
     }
     
-    /* Title - smaller, centered, no gold/yellow */
     .premium-hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 1.6rem;
@@ -323,14 +324,14 @@
       font-size: 1.0rem;
     }
     
-    /* ===== PAGE 4 - HANDWRITTEN LETTER ===== */
-    .letter-handwritten {
+    /* ===== PAGE 4 - HANDWRITTEN LETTER with SLOW TYPE ===== */
+    .letter-container {
       font-family: 'Patrick Hand', cursive;
-      font-size: 1.15rem;
-      line-height: 1.9;
+      font-size: 1.2rem;
+      line-height: 2.0;
       color: #3a2220;
       text-align: left;
-      padding: 16px 18px;
+      padding: 20px 22px;
       background: rgba(255, 245, 240, 0.35);
       border-radius: 24px;
       border: 2px solid rgba(200, 160, 150, 0.15);
@@ -338,59 +339,42 @@
       margin: 6px auto;
       box-shadow: 0 4px 12px rgba(0,0,0,0.02);
       letter-spacing: 0.3px;
+      min-height: 200px;
     }
-    .letter-handwritten .hand-line {
+    .letter-container .line {
       display: block;
-      padding: 2px 0;
       opacity: 0;
-      transform: translateY(10px);
-      animation: typeIn 0.5s ease forwards;
+      transform: translateY(8px);
+      animation: typeIn 0.6s ease forwards;
     }
-    .letter-handwritten .hand-line:nth-child(1) { animation-delay: 0.05s; }
-    .letter-handwritten .hand-line:nth-child(2) { animation-delay: 0.10s; }
-    .letter-handwritten .hand-line:nth-child(3) { animation-delay: 0.15s; }
-    .letter-handwritten .hand-line:nth-child(4) { animation-delay: 0.20s; }
-    .letter-handwritten .hand-line:nth-child(5) { animation-delay: 0.25s; }
-    .letter-handwritten .hand-line:nth-child(6) { animation-delay: 0.30s; }
-    .letter-handwritten .hand-line:nth-child(7) { animation-delay: 0.35s; }
-    .letter-handwritten .hand-line:nth-child(8) { animation-delay: 0.40s; }
-    .letter-handwritten .hand-line:nth-child(9) { animation-delay: 0.45s; }
-    .letter-handwritten .hand-line:nth-child(10) { animation-delay: 0.50s; }
-    .letter-handwritten .hand-line:nth-child(11) { animation-delay: 0.55s; }
-    .letter-handwritten .hand-line:nth-child(12) { animation-delay: 0.60s; }
-    .letter-handwritten .hand-line:nth-child(13) { animation-delay: 0.65s; }
-    .letter-handwritten .hand-line:nth-child(14) { animation-delay: 0.70s; }
-    .letter-handwritten .hand-line:nth-child(15) { animation-delay: 0.75s; }
-    .letter-handwritten .hand-line:nth-child(16) { animation-delay: 0.80s; }
-    .letter-handwritten .hand-line:nth-child(17) { animation-delay: 0.85s; }
-    .letter-handwritten .hand-line:nth-child(18) { animation-delay: 0.90s; }
-    .letter-handwritten .hand-line:nth-child(19) { animation-delay: 0.95s; }
-    .letter-handwritten .hand-line:nth-child(20) { animation-delay: 1.00s; }
-    .letter-handwritten .hand-line:nth-child(21) { animation-delay: 1.05s; }
-    .letter-handwritten .hand-line:nth-child(22) { animation-delay: 1.10s; }
-    .letter-handwritten .hand-line:nth-child(23) { animation-delay: 1.15s; }
-    .letter-handwritten .hand-line:nth-child(24) { animation-delay: 1.20s; }
-    .letter-handwritten .hand-line:nth-child(25) { animation-delay: 1.25s; }
-    .letter-handwritten .hand-line:nth-child(26) { animation-delay: 1.30s; }
-    .letter-handwritten .hand-line:nth-child(27) { animation-delay: 1.35s; }
-    .letter-handwritten .hand-line:nth-child(28) { animation-delay: 1.40s; }
-    .letter-handwritten .hand-line:nth-child(29) { animation-delay: 1.45s; }
-    .letter-handwritten .hand-line:nth-child(30) { animation-delay: 1.50s; }
+    .letter-container .line-italic {
+      font-style: italic;
+      font-weight: 700;
+      color: #a94444;
+      font-size: 1.1rem;
+    }
+    .letter-container .line-bold {
+      font-weight: 700;
+      color: #4a2a28;
+    }
+    .letter-container .line-center {
+      text-align: center;
+    }
+    .letter-container .line-heart {
+      color: #d44a4a;
+      font-size: 1.5rem;
+    }
+    .letter-container .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: #a94444;
+      text-align: right;
+      margin-top: 12px;
+    }
     
     @keyframes typeIn {
       0% { opacity: 0; transform: translateY(10px); }
       100% { opacity: 1; transform: translateY(0); }
-    }
-    .letter-handwritten .hand-signature {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.6rem;
-      color: #a94444;
-      margin-top: 8px;
-      text-align: right;
-    }
-    .letter-handwritten .hand-heart {
-      color: #d44a4a;
-      font-size: 1.3rem;
     }
     
     .button {
@@ -1011,7 +995,7 @@
       }
       .gallery-next-btn { font-size: 0.7rem; padding: 8px 20px; }
       
-      .letter-handwritten { font-size: 1.0rem; padding: 14px 14px; }
+      .letter-container { font-size: 1.0rem; padding: 16px 16px; }
       .reason-grid { gap: 6px; max-width: 320px; }
       #page5 .reason-item { font-size: 0.75rem; padding: 10px 6px; border-radius: 22px; }
       .footer { font-size: 0.75rem; padding: 12px 10px; }
@@ -1026,7 +1010,7 @@
       #page7 .video-container { max-width: 300px; }
       .footer { font-size: 0.7rem; padding: 10px 8px; }
       .download-btn { font-size: 0.65rem; padding: 6px 16px; }
-      .letter-handwritten .hand-signature { font-size: 1.3rem; }
+      .letter-container .signature { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -1053,7 +1037,7 @@
     <span>🎵</span> Music <span>❤️</span>
   </div>
 
-  <!-- ====== PAGE 1: PREMIUM HERO (refined) ====== -->
+  <!-- ====== PAGE 1: PREMIUM HERO with GOLD RING GLOW ====== -->
   <div class="page active" id="page1">
     <div class="premium-hero">
       <div class="hero-image-wrapper">
@@ -1135,31 +1119,17 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 4: HANDWRITTEN LETTER (with type-in effect) ====== -->
+  <!-- ====== PAGE 4: EMOTIONAL LETTER with SLOW TYPE EFFECT ====== -->
   <div class="page" id="page4">
     <div class="section">
       <h2>💌 My Letter To You</h2>
       <div class="divider"></div>
       
-      <div class="letter-handwritten" id="letterContainer">
-        <span class="hand-line"><strong>My Dearest Sneha ❤️</strong></span>
-        <span class="hand-line">💫 You walked into my life and made it beautiful.</span>
-        <span class="hand-line">🌅 Every morning with you is a blessing.</span>
-        <span class="hand-line">💕 Your smile heals my soul.</span>
-        <span class="hand-line">🌟 You are my strength and my peace.</span>
-        <span class="hand-line">🤝 Thank you for loving me.</span>
-        <span class="hand-line">🔥 I will always choose you.</span>
-        <span class="hand-line">💖 You are my miracle.</span>
-        <span class="hand-line">🌹 With every heartbeat, I promise you,</span>
-        <span class="hand-line">My love will remain forever true.</span>
-        <span class="hand-line">Through all the years, through joy and pain,</span>
-        <span class="hand-line">I'll love you more with each new day again.</span>
-        <span class="hand-line">🌹</span>
-        <span class="hand-line" style="margin-top:8px; font-weight:600; font-size:1.2rem;">Happy 25th Birthday My Love ❤️</span>
-        <span class="hand-line hand-signature">Forever Yours,<br>Pridesh ❤️</span>
+      <div class="letter-container" id="letterContainer">
+        <!-- lines will be injected by JS with slow timing -->
       </div>
       
-      <button class="button button-small" onclick="goToPage(5)" style="margin-top:8px;">Next →</button>
+      <button class="button button-small" onclick="goToPage(5)" style="margin-top:10px;">Next →</button>
     </div>
   </div>
 
@@ -1304,23 +1274,71 @@
         
         // Re-trigger letter animation when page 4 becomes active
         if (pageNum === 4) {
-          const letter = document.getElementById('letterContainer');
-          if (letter) {
-            // Remove and re-add to restart animation
-            letter.style.animation = 'none';
-            letter.offsetHeight; // trigger reflow
-            letter.style.animation = '';
-            // Re-apply to children
-            const lines = letter.querySelectorAll('.hand-line');
-            lines.forEach((line, index) => {
-              line.style.animation = 'none';
-              line.offsetHeight;
-              line.style.animation = `typeIn 0.5s ease forwards`;
-              line.style.animationDelay = `${0.05 + index * 0.04}s`;
-            });
-          }
+          startLetterAnimation();
         }
       }
+    }
+
+    // ========== LETTER CONTENT ==========
+    const letterLines = [
+      { text: "My Dearest Sneha ❤️", className: "line-bold line-center" },
+      { text: "", className: "" },
+      { text: "You accepted me as I am and loved me unconditionally.", className: "" },
+      { text: "🌹 You sacrificed so much for our happiness and future.", className: "" },
+      { text: "✨ Your love and support make me stronger every day.", className: "" },
+      { text: "🙏 I thank God for blessing me with you.", className: "" },
+      { text: "❤️ You are my greatest blessing and forever love.", className: "" },
+      { text: "", className: "" },
+      { text: "With every heartbeat, I promise you,", className: "line-italic" },
+      { text: "My love for you will grow stronger every day.", className: "line-italic" },
+      { text: "You are the most beautiful part of my life,", className: "line-italic" },
+      { text: "and my heart will always belong to you.", className: "line-italic" },
+      { text: "", className: "" },
+      { text: "Forever Yours,", className: "line-center" },
+      { text: "Pridesh ❤️", className: "signature" }
+    ];
+
+    let letterAnimationRunning = false;
+
+    function startLetterAnimation() {
+      const container = document.getElementById('letterContainer');
+      if (!container) return;
+      
+      // Clear container
+      container.innerHTML = '';
+      letterAnimationRunning = true;
+      
+      let lineIndex = 0;
+      const totalLines = letterLines.length;
+      const delayPerLine = 700; // Slow reading speed - 0.7 seconds per line
+      
+      function addNextLine() {
+        if (lineIndex >= totalLines) {
+          letterAnimationRunning = false;
+          return;
+        }
+        
+        const lineData = letterLines[lineIndex];
+        const span = document.createElement('span');
+        span.className = 'line';
+        if (lineData.className) {
+          span.classList.add(...lineData.className.split(' '));
+        }
+        span.textContent = lineData.text || '\u00A0'; // non-breaking space for empty lines
+        container.appendChild(span);
+        
+        // Trigger animation
+        requestAnimationFrame(() => {
+          span.style.opacity = '1';
+          span.style.transform = 'translateY(0)';
+        });
+        
+        lineIndex++;
+        setTimeout(addNextLine, delayPerLine);
+      }
+      
+      // Start the animation after a small delay
+      setTimeout(addNextLine, 300);
     }
 
     // ========== GIFT BOX ==========
@@ -1357,6 +1375,11 @@
           const opacity = 1 - (scrollPercent * 0.6);
           nextBtn.style.opacity = Math.max(0.4, opacity);
         });
+      }
+      
+      // Start letter animation if page 4 is active on load
+      if (document.getElementById('page4').classList.contains('active')) {
+        startLetterAnimation();
       }
     });
 
