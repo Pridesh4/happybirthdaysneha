@@ -122,11 +122,27 @@
       padding: 0;
       border-radius: 28px;
       overflow: hidden;
-      background: rgba(255, 235, 225, 0.3);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 220, 210, 0.4);
-      box-shadow: 0 20px 40px -15px rgba(90, 40, 30, 0.2);
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.25),
+        rgba(255,245,240,0.12)
+      );
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow:
+        0 25px 60px rgba(0,0,0,0.15),
+        inset 0 1px 1px rgba(255,255,255,0.4);
+    }
+    .premium-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,215,0,.15), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,.15), transparent 20%),
+        radial-gradient(circle at 50% 80%, rgba(255,215,0,.12), transparent 25%);
+      z-index: 0;
     }
     .premium-hero .hero-image-wrapper {
       width: 340px;
@@ -134,14 +150,19 @@
       margin: 20px auto 10px;
       border-radius: 50%;
       overflow: hidden;
-      border: 6px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 8px 40px rgba(160, 60, 60, 0.3), inset 0 0 40px rgba(255, 215, 210, 0.1);
-      position: relative;
+      border: 4px solid transparent;
+      background:
+        linear-gradient(#fff,#fff) padding-box,
+        linear-gradient(135deg,#ffd700,#fff5c3,#d4af37) border-box;
+      box-shadow:
+        0 0 30px rgba(255,215,0,.35),
+        0 8px 40px rgba(160,60,60,.25);
       animation: imageGlow 3s ease-in-out infinite;
+      position: relative;
     }
     @keyframes imageGlow {
-      0%, 100% { box-shadow: 0 8px 40px rgba(160, 60, 60, 0.3), inset 0 0 40px rgba(255, 215, 210, 0.1); }
-      50% { box-shadow: 0 8px 60px rgba(160, 60, 60, 0.4), inset 0 0 60px rgba(255, 215, 210, 0.2); }
+      0%, 100% { box-shadow: 0 0 30px rgba(255,215,0,.35), 0 8px 40px rgba(160,60,60,.25); }
+      50% { box-shadow: 0 0 60px rgba(255,215,0,.55), 0 8px 60px rgba(160,60,60,.35); }
     }
     .premium-hero .hero-image-wrapper::after {
       content: '❤️';
@@ -169,6 +190,7 @@
       padding: 10px 20px 24px;
       position: relative;
       background: linear-gradient(180deg, rgba(255, 245, 240, 0.1) 0%, rgba(255, 245, 240, 0.7) 100%);
+      z-index: 1;
     }
     .premium-hero .hero-content::before {
       content: '✨';
@@ -185,13 +207,19 @@
     }
     .premium-hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
-      background: linear-gradient(145deg, #a84c4c, #6a2525);
+      background: linear-gradient(
+        135deg,
+        #fff5c3 0%,
+        #ffd700 25%,
+        #fff8dc 50%,
+        #d4af37 75%,
+        #fff5c3 100%
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
+      text-shadow: 0 0 25px rgba(255,215,0,0.25);
       margin-bottom: 4px;
       line-height: 1.2;
       text-align: center;
@@ -279,18 +307,23 @@
     .premium-hero .btn-premium {
       display: inline-block;
       padding: 15px 44px;
-      background: linear-gradient(135deg, #cb6b6b, #a94444);
+      background: linear-gradient(
+        135deg,
+        #d4af37,
+        #ffd700,
+        #b8860b
+      );
       color: #fff;
       border: none;
       border-radius: 50px;
       font-weight: 700;
       font-size: 1.05rem;
       text-decoration: none;
-      box-shadow: 0 10px 35px -8px rgba(160, 60, 60, 0.4);
+      box-shadow:
+        0 0 20px rgba(255,215,0,.25),
+        0 15px 40px rgba(169,68,68,.35);
       transition: all 0.3s ease;
       letter-spacing: 0.6px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(4px);
       text-align: center;
       cursor: pointer;
       position: relative;
@@ -302,8 +335,15 @@
     }
     .premium-hero .btn-premium:hover {
       transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 16px 40px -8px #a94444b3;
-      background: linear-gradient(135deg, #d67a7a, #a94444);
+      box-shadow:
+        0 0 35px rgba(255,215,0,.45),
+        0 20px 50px rgba(169,68,68,.45);
+      background: linear-gradient(
+        135deg,
+        #e4c04a,
+        #ffd700,
+        #c9971a
+      );
     }
     .premium-hero .btn-premium:active {
       transform: scale(0.97);
@@ -324,6 +364,27 @@
       background: linear-gradient(90deg, transparent, #dba0a0, transparent);
       margin: 6px auto;
       border-radius: 6px;
+    }
+
+    .luxury-badge {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 30px;
+      background: rgba(255,215,0,.15);
+      color: #d4af37;
+      font-size: .7rem;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,215,0,.25);
+    }
+    
+    .hero-quote {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.3rem;
+      color: #a94444;
+      margin: 12px 0;
+      font-weight: 400;
     }
     
     .button {
@@ -387,7 +448,6 @@
       transform: scale(0.97);
     }
     
-    /* Download Button */
     .download-btn {
       display: inline-block;
       padding: 8px 20px;
@@ -436,7 +496,6 @@
       margin: 0 auto;
     }
     
-    /* PAGE 3 - 2 COLUMNS */
     .gallery {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -463,7 +522,6 @@
       background: #dba0a0;
       border-radius: 10px;
     }
-    /* Default: 2:3 ratio for all images */
     .gallery img {
       width: 100%;
       aspect-ratio: 2 / 3;
@@ -475,7 +533,6 @@
       background: #f5e3dd;
       will-change: transform;
     }
-    /* Special: 1:1 ratio for last two images (pic9.JPG and pic10.JPG) */
     .gallery img:nth-last-child(2),
     .gallery img:nth-last-child(1) {
       aspect-ratio: 1 / 1;
@@ -486,7 +543,6 @@
       border-color: #dba0a0;
     }
     
-    /* Page 3 - Next Button with Opacity on Scroll */
     .gallery-next-btn {
       display: block;
       margin: 10px auto 4px;
@@ -713,7 +769,6 @@
       font-weight: 600;
     }
 
-    /* ===== PAGE NAVIGATION ===== */
     .page {
       display: none;
       animation: pageFade 0.4s ease forwards;
@@ -733,7 +788,6 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* ALL PAGES - TOP ALIGNED */
     #page1.active,
     #page2.active,
     #page3.active,
@@ -745,7 +799,6 @@
       min-height: 100vh;
     }
 
-    /* ===== GIFT BOX - MUCH BIGGER ===== */
     .gift-wrapper {
       position: relative;
       width: 340px;
@@ -889,7 +942,6 @@
       font-weight: 600;
     }
 
-    /* ===== VIDEO PAGE ===== */
     .video-container {
       position: relative;
       width: 100%;
@@ -969,75 +1021,6 @@
       padding: 5px 12px;
     }
 
-    /* Page specific fixes */
-    #page1 .hero {
-      padding: 22px 14px 18px;
-    }
-    #page1 .hero h1 {
-      font-size: 1.9rem;
-    }
-    #page1 .hero p {
-      font-size: 0.9rem;
-    }
-    
-    #page2 .section {
-      padding: 16px 12px;
-    }
-    
-    #page3 .section {
-      padding: 14px 10px;
-    }
-    
-    #page4 .section {
-      padding: 14px 10px;
-    }
-    #page4 .letter-content {
-      padding: 10px 12px;
-      font-size: 0.85rem;
-    }
-    #page4 .short-note {
-      font-size: 0.8rem;
-      padding: 3px 0;
-    }
-    
-    #page5 .section {
-      padding: 14px 10px;
-    }
-    #page5 .reason-grid {
-      gap: 8px;
-      max-width: 400px;
-    }
-    #page5 .reason-item {
-      font-size: 0.85rem;
-      padding: 12px 8px;
-      border-radius: 25px;
-    }
-    
-    #page6 .section {
-      padding: 14px 10px;
-    }
-    #page6 .emotional-promise {
-      font-size: 0.78rem;
-      padding: 10px 12px;
-      line-height: 1.8;
-    }
-    #page6 .emotional-promise .highlight-text {
-      font-size: 0.9rem !important;
-    }
-    #page6 h2 {
-      font-size: 1.4rem;
-    }
-    
-    #page7 .section {
-      padding: 12px 10px;
-    }
-    #page7 h2 {
-      font-size: 1.3rem;
-    }
-    #page7 .video-container {
-      max-width: 360px;
-    }
-
     @media (max-width: 480px) {
       .glass { padding: 14px 10px; border-radius: 20px; }
       .section { padding: 12px 8px; border-radius: 18px; }
@@ -1051,7 +1034,6 @@
       .reply-btn { padding: 10px 24px; font-size: 0.85rem; }
       .reply-btn::before { font-size: 0.9rem; }
       
-      /* Page 1 - Premium Mobile - BIGGER 1:1 Image */
       .premium-hero .hero-image-wrapper { width: 220px; height: 220px; margin: 16px auto 8px; }
       .premium-hero .hero-image-wrapper::after { font-size: 24px; bottom: 6px; right: 6px; }
       .premium-hero h1 { font-size: 1.5rem; }
@@ -1060,8 +1042,8 @@
       .premium-hero .countdown-wrapper { padding: 10px 16px; }
       .premium-hero .btn-premium { padding: 12px 28px; font-size: 0.85rem; }
       .premium-hero .hero-content { padding: 12px 14px 18px; }
+      .hero-quote { font-size: 1rem; }
       
-      /* Page 2 - Mobile adjustments */
       .gift-wrapper { width: 260px; height: 260px; margin: 6px auto; }
       .gift-box { width: 190px; height: 165px; }
       .gift-lid { width: 182px; height: 32px; top: -22px; }
@@ -1069,7 +1051,6 @@
       .gift-body { width: 182px; height: 148px; }
       .emerge-image { width: 190px; height: 190px; }
       
-      /* Page 3 - Mobile */
       .gallery { 
         grid-template-columns: repeat(2, 1fr); 
         gap: 10px; 
@@ -1130,16 +1111,19 @@
 
   <!-- ====== PAGE 1: PREMIUM HERO ====== -->
   <div class="page active" id="page1">
-    <div class="premium-hero glass">
+    <div class="premium-hero">
       <div class="hero-image-wrapper">
         <img src="pic12.jpg" alt="Sneha ❤️" class="hero-image">
       </div>
       <div class="hero-content">
+        <div class="luxury-badge">✨ QUEEN OF MY HEART ✨</div>
         <h1>🎂 Happy 25th Birthday<br>My Beautiful Wife Sneha ❤️</h1>
         <div class="decorative-line"></div>
         <p class="subtitle">
-          You are my happiness, my peace, my best friend,<br>
-          and God's greatest blessing in my life. <span>✨</span>
+          You are my happiness, my peace,<br>my best friend, and God's greatest blessing.
+        </p>
+        <p class="hero-quote">
+          "Every love story is beautiful,<br>but ours is my favorite ❤️"
         </p>
         
         <div class="countdown-wrapper">
@@ -1238,7 +1222,7 @@
     </div>
   </div>
 
-  <!-- ====== PAGE 5: REASONS - "Your Sacrifice" BOLD ====== -->
+  <!-- ====== PAGE 5: REASONS ====== -->
   <div class="page" id="page5">
     <div class="section">
       <h2>🎁 10 Reasons I Love You</h2>
